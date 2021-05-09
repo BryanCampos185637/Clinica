@@ -1,0 +1,38 @@
+﻿@model DataAccessLogic.LogicaEnfermedad.AgregarEnfermedad.Ejecuta
+
+@{
+    ViewData["Title"] = "Guardar";
+}
+
+<h1>Guardar</h1>
+
+<h4>Enfermedad</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Guardar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NombreEnfermedad" class="control-label"></label>
+                <input asp-for="NombreEnfermedad" class="form-control" />
+                <span asp-validation-for="NombreEnfermedad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DescripcionEnfermedad" class="control-label"></label>
+                <input asp-for="DescripcionEnfermedad" class="form-control" />
+                <span asp-validation-for="DescripcionEnfermedad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

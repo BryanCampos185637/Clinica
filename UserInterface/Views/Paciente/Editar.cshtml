@@ -1,0 +1,45 @@
+﻿@model DataAccessLogic.LogicaPaciente.ModificarPaciente.Ejecuta
+
+<h4>Paciente</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Editar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="PacienteId" class="form-control" type="hidden" />
+            </div>
+            <div class="form-group">
+                <label asp-for="NombrePaciente" class="control-label"></label>
+                <input asp-for="NombrePaciente" class="form-control" />
+                <span asp-validation-for="NombrePaciente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApellidoPaciente" class="control-label"></label>
+                <input asp-for="ApellidoPaciente" class="form-control" />
+                <span asp-validation-for="ApellidoPaciente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EdadPaciente" class="control-label"></label>
+                <input asp-for="EdadPaciente" class="form-control" />
+                <span asp-validation-for="EdadPaciente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NoDuiPaciente" class="control-label"></label>
+                <input asp-for="NoDuiPaciente" class="form-control" />
+                <span asp-validation-for="NoDuiPaciente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
