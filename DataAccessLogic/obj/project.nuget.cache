@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XV86jIj7jg3XwEFVgLqy+2mBAXsyWsNTuFn1BoO86Hu/qPeYq7ghH8xAhIQ7WWqPPaRPP1R+RvOZQ2jF9pYYwg==",
+  "dgSpecHash": "6lQhlj8BhOsAJdxXtgPqPo2eQuuozD5oQJrEnXBOmFx2zGhSkRiz7/BiuX0YJ/WOSqSGtWSiPzRgwtiyMoXpXg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Bryan J. Campos\\Desktop\\Proyectos en Marcha\\Clinica\\DataAccessLogic\\DataAccessLogic.csproj",
+  "projectFilePath": "C:\\Users\\Bryan J. Campos\\Documents\\GitHub\\Clinica\\DataAccessLogic\\DataAccessLogic.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Bryan J. Campos\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
     "C:\\Users\\Bryan J. Campos\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\9.0.0\\mediatr.extensions.microsoft.dependencyinjection.9.0.0.nupkg.sha512",

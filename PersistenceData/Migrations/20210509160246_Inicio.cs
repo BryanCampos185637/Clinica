@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PersistenceData.Migrations
 {
-    public partial class initializate : Migration
+    public partial class Inicio : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -31,6 +31,7 @@ namespace PersistenceData.Migrations
                     ApellidoPaciente = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     EdadPaciente = table.Column<int>(type: "int", nullable: false),
                     NoDuiPaciente = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    FechaNacimiento = table.Column<DateTime>(type: "datetime2", nullable: false),
                     FechaCreacion = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>

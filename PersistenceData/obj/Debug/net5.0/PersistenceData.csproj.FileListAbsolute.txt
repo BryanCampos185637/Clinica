@@ -28,3 +28,18 @@ C:\Users\Bryan J. Campos\Desktop\Proyectos en Marcha\Clinica\PersistenceData\obj
 C:\Users\Bryan J. Campos\Desktop\Proyectos en Marcha\Clinica\PersistenceData\obj\Debug\net5.0\PersistenceData.dll
 C:\Users\Bryan J. Campos\Desktop\Proyectos en Marcha\Clinica\PersistenceData\obj\Debug\net5.0\ref\PersistenceData.dll
 C:\Users\Bryan J. Campos\Desktop\Proyectos en Marcha\Clinica\PersistenceData\obj\Debug\net5.0\PersistenceData.pdb
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\PersistenceData\bin\Debug\net5.0\PersistenceData.deps.json
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\PersistenceData\bin\Debug\net5.0\PersistenceData.dll
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\PersistenceData\bin\Debug\net5.0\ref\PersistenceData.dll
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\PersistenceData\bin\Debug\net5.0\PersistenceData.pdb
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\PersistenceData\bin\Debug\net5.0\Models.dll
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\PersistenceData\bin\Debug\net5.0\Models.pdb
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\PersistenceData\obj\Debug\net5.0\PersistenceData.csprojAssemblyReference.cache
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\PersistenceData\obj\Debug\net5.0\PersistenceData.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\PersistenceData\obj\Debug\net5.0\PersistenceData.AssemblyInfoInputs.cache
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\PersistenceData\obj\Debug\net5.0\PersistenceData.AssemblyInfo.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\PersistenceData\obj\Debug\net5.0\PersistenceData.csproj.CoreCompileInputs.cache
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\PersistenceData\obj\Debug\net5.0\PersistenceData.csproj.CopyComplete
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\PersistenceData\obj\Debug\net5.0\PersistenceData.dll
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\PersistenceData\obj\Debug\net5.0\ref\PersistenceData.dll
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\PersistenceData\obj\Debug\net5.0\PersistenceData.pdb

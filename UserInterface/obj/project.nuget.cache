@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7ocfCaL0AI7rSO5OD1yfHnJ7sNNAQE8gvqYCIpNR8nrIyRy53RAo8yittuIpUA3PGjpaFkdH5a3Oho7m6rvddA==",
+  "dgSpecHash": "DUUUuE4SeEGjeETwZYSr/bvu0gX48WkQ3nGFfaoBL9lqqeYsP1EsdC940T8YW5fDRGvPtZQB5yVMCcKlRvCyEQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Bryan J. Campos\\Desktop\\Proyectos en Marcha\\Clinica\\UserInterface\\UserInterface.csproj",
+  "projectFilePath": "C:\\Users\\Bryan J. Campos\\Documents\\GitHub\\Clinica\\UserInterface\\UserInterface.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Bryan J. Campos\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Bryan J. Campos\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",

@@ -10,8 +10,8 @@ using PersistenceData;
 namespace PersistenceData.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210508003626_initializate")]
-    partial class initializate
+    [Migration("20210509160246_Inicio")]
+    partial class Inicio
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -112,6 +112,9 @@ namespace PersistenceData.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("FechaCreacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("FechaNacimiento")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("NoDuiPaciente")

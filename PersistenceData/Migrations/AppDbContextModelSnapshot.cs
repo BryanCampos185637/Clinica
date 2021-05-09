@@ -112,6 +112,9 @@ namespace PersistenceData.Migrations
                     b.Property<DateTime>("FechaCreacion")
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime>("FechaNacimiento")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("NoDuiPaciente")
                         .IsRequired()
                         .HasMaxLength(10)

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2w/p9Pfu+nFR4jRlK6mr6wYENi4qU5yoaIK+stQHuDHO5EDfYj79ZB8NorJm3u9RN4OxA5GaM4dm0ms2LTN86A==",
+  "dgSpecHash": "bhBJ+SYJCuO8/SzRqmVoGx79luhP0qM9BVp4QfFkWO8oJkBqT+hMriVPr07kTs36TgWvUkJQFPNrY/JwkHRtaQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Bryan J. Campos\\Desktop\\Proyectos en Marcha\\Clinica\\PersistenceData\\PersistenceData.csproj",
+  "projectFilePath": "C:\\Users\\Bryan J. Campos\\Documents\\GitHub\\Clinica\\PersistenceData\\PersistenceData.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Bryan J. Campos\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Bryan J. Campos\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

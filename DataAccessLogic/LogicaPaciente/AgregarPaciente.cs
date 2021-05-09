@@ -26,8 +26,13 @@ namespace DataAccessLogic.LogicaPaciente
             [Range(1,150,ErrorMessage ="La edad debe estar entre 1 y 150")]
             public int? EdadPaciente { get; set; }
             [Required(ErrorMessage ="El dui del paciente es requerido")]
+            [StringLength(10, ErrorMessage ="El dui debe contener 10 caracteres",MinimumLength =10)]
             [Display(Name = "DUI")]
             public string NoDuiPaciente { get; set; }
+            [Required(ErrorMessage = "La fecha de nacimiento del paciente es requerido")]
+            [Display(Name = "FECHA NACIMIENTO")]
+            [DataType(DataType.Date)]
+            public DateTime? FechaNacimiento { get; set; }
         }
         public class Manejador : IRequestHandler<Ejecuta,string>
         {
@@ -48,7 +53,8 @@ namespace DataAccessLogic.LogicaPaciente
                     ApellidoPaciente = request.ApellidoPaciente,
                     EdadPaciente = (int)request.EdadPaciente,
                     FechaCreacion = DateTime.Now,
-                    PacienteId = Guid.NewGuid()
+                    PacienteId = Guid.NewGuid(),
+                    FechaNacimiento=(DateTime)request.FechaNacimiento
                 };
                 context.Pacientes.Add(obj);
                 var rpt = await context.SaveChangesAsync();
