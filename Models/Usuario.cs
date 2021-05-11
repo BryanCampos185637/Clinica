@@ -10,6 +10,6 @@ namespace Models
         public int TipoUsuarioId { get; set; }
         public TipoUsuario TipoUsuario { get; set; }
         public DateTime FechaCreacion { get; set; }
-
+       
     }
 }

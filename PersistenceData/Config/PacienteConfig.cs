@@ -5,6 +5,10 @@ namespace PersistenceData.Config
 {
     public class PacienteConfig
     {
+        /// <summary>
+        /// establecemos las restricciones de la tabla
+        /// </summary>
+        /// <param name="entityTypeBuilder"></param>
         public PacienteConfig(EntityTypeBuilder<Paciente> entityTypeBuilder)
         {
             entityTypeBuilder.Property(p => p.NombrePaciente).HasMaxLength(200).IsRequired();

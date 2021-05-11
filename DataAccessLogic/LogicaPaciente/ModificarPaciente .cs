@@ -52,8 +52,8 @@ namespace DataAccessLogic.LogicaPaciente
                 var obj = new Paciente
                 {
                     NoDuiPaciente = request.NoDuiPaciente,
-                    NombrePaciente = request.NombrePaciente,
-                    ApellidoPaciente = request.ApellidoPaciente,
+                    NombrePaciente = request.NombrePaciente.ToUpper(),
+                    ApellidoPaciente = request.ApellidoPaciente.ToUpper(),
                     EdadPaciente = (int)request.EdadPaciente,
                     PacienteId =request.PacienteId,
                     FechaNacimiento = (DateTime)request.FechaNacimiento

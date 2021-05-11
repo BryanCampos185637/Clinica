@@ -7,6 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PersistenceData;
+using System;
+using UserInterface.FiltroSeguridad;
 
 namespace UserInterface
 {
@@ -28,6 +30,11 @@ namespace UserInterface
                 p.UseSqlServer(Configuration.GetConnectionString("local"));
             });
             services.AddMediatR(typeof(AgregarPaciente.Manejador).Assembly);
+            services.AddSession(opt =>
+            {
+                opt.IdleTimeout = TimeSpan.FromMinutes(1);
+            });
+            services.AddScoped<FiltroDeSeguridadWeb>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,6 +49,8 @@ namespace UserInterface
                 app.UseExceptionHandler("/Home/Error");
             }
             app.UseStaticFiles();
+
+            app.UseSession();
 
             app.UseRouting();
 

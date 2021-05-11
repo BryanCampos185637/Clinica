@@ -5,6 +5,10 @@ namespace PersistenceData.Config
 {
     public class UsuarioConfig
     {
+        /// <summary>
+        /// establece las restricciones de la tabla
+        /// </summary>
+        /// <param name="entityTypeBuilder"></param>
         public UsuarioConfig(EntityTypeBuilder<Usuario> entityTypeBuilder)
         {
             entityTypeBuilder.Property(p => p.Contra).IsRequired().HasMaxLength(50);

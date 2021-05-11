@@ -43,8 +43,8 @@ namespace DataAccessLogic.LogicaServicio
                     context.Servicios.Update(new Servicio
                     {
                         ServicioId=request.ServicioId,
-                        DescripcionServicio = request.DescripcionServicio,
-                        NombreServicio = request.NombreServicio
+                        DescripcionServicio = request.DescripcionServicio.ToUpper(),
+                        NombreServicio = request.NombreServicio.ToUpper()
                     });
                     var rpt = await context.SaveChangesAsync();
                     if (rpt > 0)

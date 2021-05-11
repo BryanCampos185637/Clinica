@@ -1336,3 +1336,11 @@ C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\ref\UserInterface.dll
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\UserInterface.pdb
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\UserInterface.genruntimeconfig.cache
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Servicio\Index.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Servicio\Guardar.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Servicio\Editar.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Login\Login.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Login\Registrar.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Usuario\Index.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Usuario\Guardar.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Usuario\Editar.cshtml.g.cs

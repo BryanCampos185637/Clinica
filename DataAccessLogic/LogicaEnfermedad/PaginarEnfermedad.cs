@@ -13,12 +13,18 @@ namespace DataAccessLogic.LogicaEnfermedad
 {
     public class PaginarEnfermedad
     {
+        /// <summary>
+        /// devolvera un objeto de tipo EnfermedadDTO
+        /// </summary>
         public class Ejecuta:IRequest<EnfermedadDTO>
         {
             public int pagina { get; set; }
             public int cantidadItems { get; set; }
             public string filtro { get; set; }
         }
+        /// <summary>
+        /// este ejecuta la transaccion para crear el paginado
+        /// </summary>
         public class Manejador : IRequestHandler<Ejecuta, EnfermedadDTO>
         {
             private readonly AppDbContext context;

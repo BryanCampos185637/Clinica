@@ -6,10 +6,15 @@ namespace PersistenceData
 {
     public class AppDbContext:DbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
-        {
-
-        }
+        /// <summary>
+        /// Inyeccion de la conexion a la base de datos
+        /// </summary>
+        /// <param name="options"></param>
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options){}
+        /// <summary>
+        /// Me permite poner restricciones a las propiedades en la base de datos
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

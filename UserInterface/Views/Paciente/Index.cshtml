@@ -12,7 +12,7 @@
         <legend>Lista de @ViewData["Title"]</legend>
         <form method="get" asp-action="Index" id="frmFiltroBusqueda" class="mb-1">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Escribe el dui del paciente" id="filtro" name="filtro" value="@ViewBag.filtro" />
+                <input type="text" autocomplete="off" class="form-control" placeholder="Escribe el dui del paciente" id="filtro" name="filtro" value="@ViewBag.filtro" />
                 <button type="submit" class="btn btn-success btn-sm">Buscar</button>
                 <button type="button" class="btn btn-danger btn-sm" onclick="LimpiarFormularioBusqueda()">Limpiar</button>
             </div>

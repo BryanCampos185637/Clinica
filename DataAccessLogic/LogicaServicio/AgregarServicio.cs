@@ -39,8 +39,8 @@ namespace DataAccessLogic.LogicaServicio
                         return "El servicio ya esta registrado en la base de datos";
                     context.Servicios.Add(new Servicio
                     {
-                        DescripcionServicio = request.DescripcionServicio,
-                        NombreServicio = request.NombreServicio,
+                        DescripcionServicio = request.DescripcionServicio.ToUpper(),
+                        NombreServicio = request.NombreServicio.ToUpper(),
                         FechaCreacion = DateTime.Now
                     });
                     var rpt = await context.SaveChangesAsync();

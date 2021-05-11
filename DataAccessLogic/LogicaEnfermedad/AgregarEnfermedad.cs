@@ -12,6 +12,9 @@ namespace DataAccessLogic.LogicaEnfermedad
 {
     public class AgregarEnfermedad
     {
+        /// <summary>
+        /// Contiene las propiedades que tendra que agregar el usuario
+        /// </summary>
         public class Ejecuta : IRequest<string>
         {
             [Display(Name = "NOMBRE")]
@@ -23,6 +26,10 @@ namespace DataAccessLogic.LogicaEnfermedad
             [Display(Name = "DESCRIPCÍON")]
             public string DescripcionEnfermedad { get; set; }
         }
+        /// <summary>
+        /// conecta con la base de datos y ejecuta la transaccion
+        /// si la transaccion es correcta debe devolver la palabra Exito
+        /// </summary>
         public class Manejador : IRequestHandler<Ejecuta, string>
         {
             private readonly AppDbContext context;
@@ -39,8 +46,8 @@ namespace DataAccessLogic.LogicaEnfermedad
                         return "Esta enfermedad ya esta registrada en el sistema";
                     context.Enfermedades.Add(new Enfermedad
                     {
-                        NombreEnfermedad = request.NombreEnfermedad,
-                        DescripcionEnfermedad = request.DescripcionEnfermedad,
+                        NombreEnfermedad = request.NombreEnfermedad.ToUpper(),
+                        DescripcionEnfermedad = request.DescripcionEnfermedad.ToUpper(),
                         FechaCreacion = DateTime.Now
                     });
                     var rpt = await context.SaveChangesAsync();

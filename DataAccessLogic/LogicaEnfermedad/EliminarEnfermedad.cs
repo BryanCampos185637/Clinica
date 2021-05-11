@@ -10,10 +10,16 @@ namespace DataAccessLogic.LogicaEnfermedad
 {
     public class EliminarEnfermedad
     {
+        /// <summary>
+        /// solo espera la propiedad que representa a la llave primaria
+        /// </summary>
         public class Ejecta : IRequest<string>
         {
             public Int64 EnfermedadId { get; set; }
         }
+        /// <summary>
+        /// ejecuta la transaccion para eliminar la enfermedad
+        /// </summary>
         public class Manejador : IRequestHandler<Ejecta, string>
         {
             private readonly AppDbContext context;

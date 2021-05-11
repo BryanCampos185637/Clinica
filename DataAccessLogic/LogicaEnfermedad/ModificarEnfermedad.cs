@@ -12,6 +12,9 @@ namespace DataAccessLogic.LogicaEnfermedad
 {
     public class ModificarEnfermedad
     {
+        /// <summary>
+        /// propiedades que el usuario debe dar para poder ejecutar la transaccion
+        /// </summary>
         public class Ejecuta : IRequest <string>
         {
             [Required]
@@ -25,6 +28,10 @@ namespace DataAccessLogic.LogicaEnfermedad
             [Display(Name = "DESCRIPCÍON")]
             public string DescripcionEnfermedad { get; set; }
         }
+        /// <summary>
+        /// conecta con la base de datos y ejecuta la transaccion si todo esta bien debe devolver la palabra
+        /// Exito
+        /// </summary>
         public class Manejador : IRequestHandler<Ejecuta, string>
         {
             private readonly AppDbContext context;
@@ -43,8 +50,8 @@ namespace DataAccessLogic.LogicaEnfermedad
                     context.Enfermedades.Update(new Enfermedad
                     {
                         EnfermedadId = request.EnfermedadId,
-                        NombreEnfermedad = request.NombreEnfermedad,
-                        DescripcionEnfermedad = request.DescripcionEnfermedad
+                        NombreEnfermedad = request.NombreEnfermedad.ToUpper(),
+                        DescripcionEnfermedad = request.DescripcionEnfermedad.ToUpper()
                     });
                     var rpt = await context.SaveChangesAsync();
                     if (rpt > 0)
