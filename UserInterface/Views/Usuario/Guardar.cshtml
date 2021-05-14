@@ -25,6 +25,14 @@
             <div class="form-group">
                 <label asp-for="TipoUsuarioId" class="control-label"></label>
                 <select asp-for="TipoUsuarioId" class="form-control" id="TipoUsuarioId">
+                    @if (Model.ListatipoUsuarios != null && Model.ListatipoUsuarios.Count > 0)
+                    {
+                        <option value="">--Selecciona una opcion--</option>
+                        @foreach (var item in Model.ListatipoUsuarios)
+                        {
+                            <option value="@item.TipoUsuarioId">@item.NombreTipoUsuario: @item.DescripcionTipoUsuario</option>
+                        }
+                    }
                 </select>
                 <span asp-validation-for="TipoUsuarioId" class="text-danger"></span>
             </div>
@@ -38,5 +46,3 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-
-<script src="~/js/Peticiones AJAX/UsuarioAJAX.js"></script>

@@ -2,9 +2,12 @@
 using Microsoft.AspNetCore.Mvc;
 using DataAccessLogic.LogicaTipoUsuario;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace UserInterface.Controllers
 {
+    //[ServiceFilter(typeof(FiltroDeSeguridadWeb))]
+    [Authorize]
     public class UsuarioController : MiControladorBaseController
     {
         public async Task<IActionResult> Index(string filtro = "", int pagina = 1, int cantidad = 5)
@@ -18,9 +21,12 @@ namespace UserInterface.Controllers
                 cantidadItems = cantidad
             }));
         }
-        public IActionResult Guardar()
+        public async Task<IActionResult> Guardar()
         {
-            return View();
+            return View(new AgregarUsuario.Ejecuta
+            {
+                ListatipoUsuarios = await _mediator.Send(new ListarTipoUsuario.Ejecuta())
+            });
         }
         [HttpPost]
         public async Task<IActionResult> Guardar(AgregarUsuario.Ejecuta parametros)
@@ -39,19 +45,15 @@ namespace UserInterface.Controllers
                 {
                     TempData["success"] = rpt;
                     TempData["icono"] = "warning";
+                    parametros.ListatipoUsuarios = await _mediator.Send(new ListarTipoUsuario.Ejecuta());
                     return View(parametros);
                 }
             }
             else
             {
+                parametros.ListatipoUsuarios = await _mediator.Send(new ListarTipoUsuario.Ejecuta());
                 return View(parametros);
             }
-        }
-        [HttpGet]
-        public async Task<JsonResult> ListarTipoUsuario()
-        {
-            var lst = await _mediator.Send(new ListarTipoUsuario.Ejecuta());
-            return Json(lst);
         }
         public async Task<IActionResult> Editar(int id)
         {
@@ -61,7 +63,8 @@ namespace UserInterface.Controllers
                 UsuarioId = obj.UsuarioId,
                 NombreUsuario = obj.NombreUsuario,
                 Contra = obj.Contra,
-                TipoUsuarioId = obj.TipoUsuarioId
+                TipoUsuarioId = obj.TipoUsuarioId,
+                ListatipoUsuarios = await _mediator.Send(new ListarTipoUsuario.Ejecuta())
             });
         }
         [HttpPost]
@@ -81,11 +84,13 @@ namespace UserInterface.Controllers
                 {
                     TempData["success"] = rpt;
                     TempData["icono"] = "warning";
+                    parametros.ListatipoUsuarios = await _mediator.Send(new ListarTipoUsuario.Ejecuta());
                     return View(parametros);
                 }
             }
             else
             {
+                parametros.ListatipoUsuarios = await _mediator.Send(new ListarTipoUsuario.Ejecuta());
                 return View(parametros);
             }
         }

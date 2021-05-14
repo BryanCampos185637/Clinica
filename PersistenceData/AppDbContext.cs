@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Models;
 using PersistenceData.Config;
 
 namespace PersistenceData
 {
-    public class AppDbContext:DbContext
+    public class AppDbContext: IdentityDbContext
     {
         /// <summary>
         /// Inyeccion de la conexion a la base de datos
@@ -25,6 +26,7 @@ namespace PersistenceData
             new ServicioConfig(modelBuilder.Entity<Servicio>());
             new UsuarioConfig(modelBuilder.Entity<Usuario>());
         }
+        
         public DbSet<Cita>Citas { get; set; }
         public DbSet<Enfermedad>Enfermedades { get; set; }
         public DbSet<Paciente>Pacientes { get; set; }

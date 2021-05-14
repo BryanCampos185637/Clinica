@@ -1,4 +1,5 @@
 ﻿using DataAccessLogic.LogicaEnfermedad;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
@@ -6,7 +7,8 @@ using UserInterface.FiltroSeguridad;
 
 namespace UserInterface.Controllers
 {
-    [ServiceFilter(typeof(FiltroDeSeguridadWeb))]
+    //[ServiceFilter(typeof(FiltroDeSeguridadWeb))]
+    [Authorize]
     public class EnfermedadController : MiControladorBaseController
     {
         public async Task<IActionResult> Index(string filtro = "", int pagina = 1, int cantidad = 5)

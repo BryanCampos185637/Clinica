@@ -915,8 +915,6 @@ C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Connections.Abstractions.dll
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\refs\Microsoft.AspNetCore.CookiePolicy.dll
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Cors.dll
-C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Cryptography.Internal.dll
-C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\refs\Microsoft.AspNetCore.DataProtection.Abstractions.dll
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\refs\Microsoft.AspNetCore.DataProtection.dll
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\refs\Microsoft.AspNetCore.DataProtection.Extensions.dll
@@ -1001,8 +999,6 @@ C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\refs\Microsoft.Extensions.Hosting.Abstractions.dll
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\refs\Microsoft.Extensions.Hosting.dll
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\refs\Microsoft.Extensions.Http.dll
-C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\refs\Microsoft.Extensions.Identity.Core.dll
-C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\refs\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\refs\Microsoft.Extensions.Localization.Abstractions.dll
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\refs\Microsoft.Extensions.Localization.dll
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\refs\Microsoft.Extensions.Logging.Abstractions.dll
@@ -1185,6 +1181,9 @@ C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\Humanizer.dll
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\MediatR.dll
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.dll
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\Microsoft.AspNetCore.Razor.Language.dll
@@ -1202,6 +1201,8 @@ C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\Microsoft.Identity.Client.dll
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
@@ -1323,9 +1324,15 @@ C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Paciente\Guardar.cshtml.g.cs
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Paciente\Index.cshtml.g.cs
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Paginador\_Paginador.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Servicio\Editar.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Servicio\Guardar.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Servicio\Index.cshtml.g.cs
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Usuario\Editar.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Usuario\Guardar.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Usuario\Index.cshtml.g.cs
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\UserInterface.RazorTargetAssemblyInfo.cache
@@ -1336,11 +1343,5 @@ C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\ref\UserInterface.dll
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\UserInterface.pdb
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\UserInterface.genruntimeconfig.cache
-C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Servicio\Index.cshtml.g.cs
-C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Servicio\Guardar.cshtml.g.cs
-C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Servicio\Editar.cshtml.g.cs
-C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Login\Login.cshtml.g.cs
-C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Login\Registrar.cshtml.g.cs
-C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Usuario\Index.cshtml.g.cs
-C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Usuario\Guardar.cshtml.g.cs
-C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Usuario\Editar.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Account\Registrar.cshtml.g.cs

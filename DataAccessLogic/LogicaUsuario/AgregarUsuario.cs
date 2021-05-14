@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Models;
 using PersistenceData;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading;
@@ -24,6 +25,8 @@ namespace DataAccessLogic.LogicaUsuario
             [Display(Name = "ROL")]
             [Required(ErrorMessage = "El rol es requerido")]
             public int? TipoUsuarioId { get; set; }
+            //lista para mostrar los tipos de usuario
+            public List<TipoUsuario>ListatipoUsuarios { get; set; }
         }
         public class Manejador : IRequestHandler<Ejecuta, string>
         {
