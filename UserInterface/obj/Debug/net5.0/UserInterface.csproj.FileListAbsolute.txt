@@ -1345,3 +1345,9 @@ C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\UserInterface.genruntimeconfig.cache
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Account\Registrar.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Expediente\Index.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Expediente\Guardar.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Expediente\Editar.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Cita\Guardar.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Cita\CrearCita.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Cita\Index.cshtml.g.cs

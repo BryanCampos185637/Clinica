@@ -15,9 +15,11 @@ namespace DataAccessLogic.Seguridad
         {
             [Required(ErrorMessage ="El email es requerido")]
             [EmailAddress]
+            [Display(Name ="CORREO")]
             public string Email { get; set; }
             [Required(ErrorMessage ="La contraseña es requerida")]
             [DataType(DataType.Password)]
+            [Display(Name = "CONTRASEÑA")]
             public string password { get; set; }
         }
         public class Manejador : IRequestHandler<Ejecuta, bool>

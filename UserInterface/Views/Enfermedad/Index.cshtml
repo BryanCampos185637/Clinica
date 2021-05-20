@@ -4,11 +4,11 @@
 }
 
 <div class="row">
-    <fieldset class="col-lg-12 col-sm-12 mb-2">
+    <fieldset class="col-md-12 col-sm-12 mb-2">
         <legend>Botonera @ViewData["Title"]</legend>
         <a asp-action="Guardar" class="btn btn-primary btn-sm">Nuevo</a>
     </fieldset>
-    <fieldset class="col-lg-12 col-sm-12">
+    <fieldset class="col-md-12 col-sm-12">
         <legend>Lista de @ViewData["Title"]</legend>
         <form method="get" asp-action="Index" id="frmFiltroBusqueda" class="mb-1">
             <div class="input-group">
@@ -52,7 +52,7 @@
             </tbody>
         </table>
         <div class="row">
-            <div class="col-12 text-center">
+            <div class="col-md-12 col-sm-12 text-center">
                 <partial name="~/Views/Paginador/_Paginador.cshtml" model="Model" />
             </div>
         </div>

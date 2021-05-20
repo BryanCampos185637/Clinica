@@ -25,6 +25,7 @@ namespace PersistenceData
             new PaginaConfig(modelBuilder.Entity<Pagina>());
             new ServicioConfig(modelBuilder.Entity<Servicio>());
             new UsuarioConfig(modelBuilder.Entity<Usuario>());
+            new ExpedienteConfig(modelBuilder.Entity<Expediente>());
         }
         
         public DbSet<Cita>Citas { get; set; }

@@ -62,6 +62,10 @@
     <form asp-action="Eliminar" asp-controller="Paciente" method="post" id="frmEliminar">
         <input type="hidden" id="id" name="id" />
     </form>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/Inputmask-5.x/dist/inputmask.js"></script>
+    <script src="~/lib/Inputmask-5.x/dist/jquery.inputmask.js"></script>
+    <script src="~/js/InputMask/filtroDUI.js"></script>
     <script>
         function EliminarRegistro(id) {
             confirmarEliminacion('el paciente', () => {

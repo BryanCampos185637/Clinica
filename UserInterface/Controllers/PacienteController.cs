@@ -61,6 +61,7 @@ namespace UserInterface.Controllers
                 NombrePaciente = paciente.NombrePaciente,
                 ApellidoPaciente = paciente.ApellidoPaciente,
                 EdadPaciente = paciente.EdadPaciente,
+                Direccion=paciente.Direccion,
                 FechaNacimiento=paciente.FechaNacimiento
             });
         }

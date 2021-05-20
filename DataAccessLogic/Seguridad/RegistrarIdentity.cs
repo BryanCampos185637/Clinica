@@ -14,13 +14,16 @@ namespace DataAccessLogic.Seguridad
     {
         public class Ejecuta : IRequest<string>
         {
+            [Display(Name ="NOMBRE DE USUARIO")]
             [Required(ErrorMessage = "El nombre de usuario es requerido")]
             public string Usuario { get; set; }
             [Required(ErrorMessage = "El email es requerido")]
             [EmailAddress]
+            [Display(Name = "EMAIL")]
             public string Email { get; set; }
             [Required(ErrorMessage = "La contraseña es requerida")]
             [DataType(DataType.Password)]
+            [Display(Name = "CONTRASEÑA")]
             public string password { get; set; }
         }
         public class Manejador : IRequestHandler<Ejecuta, string>

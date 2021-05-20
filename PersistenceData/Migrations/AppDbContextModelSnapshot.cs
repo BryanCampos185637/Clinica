@@ -273,6 +273,10 @@ namespace PersistenceData.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("CodidoExpediente")
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
+
                     b.Property<long>("EnfermedadId")
                         .HasColumnType("bigint");
 
@@ -302,6 +306,11 @@ namespace PersistenceData.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
+                    b.Property<string>("Direccion")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
                     b.Property<int>("EdadPaciente")
                         .HasColumnType("int");
 
@@ -320,6 +329,10 @@ namespace PersistenceData.Migrations
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("PacienteTieneExpediente")
+                        .HasMaxLength(2)
+                        .HasColumnType("nvarchar(2)");
 
                     b.HasKey("PacienteId");
 
@@ -510,7 +523,7 @@ namespace PersistenceData.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Models.Servicio", "servicio")
+                    b.HasOne("Models.Servicio", "Servicio")
                         .WithMany()
                         .HasForeignKey("ServicioId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -518,7 +531,7 @@ namespace PersistenceData.Migrations
 
                     b.Navigation("Expediente");
 
-                    b.Navigation("servicio");
+                    b.Navigation("Servicio");
                 });
 
             modelBuilder.Entity("Models.Expediente", b =>

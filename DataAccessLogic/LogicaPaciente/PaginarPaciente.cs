@@ -37,7 +37,7 @@ namespace DataAccessLogic.LogicaPaciente
                     var listPaciente = new List<Paciente>();
                     if (request.pagina > totalPaginas) { request.pagina = totalPaginas; }
                     listPaciente = await context.Pacientes.Where(p => p.NoDuiPaciente.Contains(request.filtro))
-                                   .OrderByDescending(p => p.PacienteId)
+                                   .OrderByDescending(p => p.FechaCreacion)
                                    .Skip((request.pagina - 1) * request.cantidadItems)
                                    .Take(request.cantidadItems).ToListAsync();
                     var paciente = new PacienteDTO

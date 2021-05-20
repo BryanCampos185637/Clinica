@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Models;
 using PersistenceData;
 using System;
@@ -35,6 +36,10 @@ namespace DataAccessLogic.LogicaPaciente
             [Display(Name = "FECHA NACIMIENTO")]
             [DataType(DataType.Date)]
             public DateTime? FechaNacimiento { get; set; }
+            [Display(Name = "DIRECCIÓN")]
+            [Required(ErrorMessage = "La direccion es requerida")]
+            [StringLength(200, ErrorMessage = "El dirección solo puede contener 200 caracteres")]
+            public string Direccion { get; set; }
         }
         public class Manejador : IRequestHandler<Ejecuta,string>
         {
@@ -45,25 +50,31 @@ namespace DataAccessLogic.LogicaPaciente
             }
             public async Task<string> Handle(Ejecuta request, CancellationToken cancellationToken)
             {
-                var nveces = context.Pacientes.Where(p => p.NoDuiPaciente.Equals(request.NoDuiPaciente)
-                && p.PacienteId != request.PacienteId).Count();
-                if (nveces > 0)
-                    return "El numero de dui ya existe en el sistema";
-                var obj = new Paciente
+                try
                 {
-                    NoDuiPaciente = request.NoDuiPaciente,
-                    NombrePaciente = request.NombrePaciente.ToUpper(),
-                    ApellidoPaciente = request.ApellidoPaciente.ToUpper(),
-                    EdadPaciente = (int)request.EdadPaciente,
-                    PacienteId =request.PacienteId,
-                    FechaNacimiento = (DateTime)request.FechaNacimiento
-                };
-                context.Pacientes.Update(obj);
-                var rpt = await context.SaveChangesAsync();
-                if (rpt > 0)
-                    return "Exito";
-                else
-                   return "No se pudo modificar el paciente";
+                    var nveces = context.Pacientes.Where(p => p.NoDuiPaciente.Equals(request.NoDuiPaciente)
+                                                            && p.PacienteId != request.PacienteId).Count();
+                    if (nveces > 0)
+                        return "El numero de dui ya existe en el sistema";
+                    var obj = await context.Pacientes.Where(p => p.PacienteId.Equals(request.PacienteId)).FirstAsync();
+                    obj.NoDuiPaciente = request.NoDuiPaciente;
+                    obj.NombrePaciente = request.NombrePaciente.ToUpper();
+                        obj.ApellidoPaciente = request.ApellidoPaciente.ToUpper();
+                        obj.EdadPaciente = (int)request.EdadPaciente;
+                        obj.PacienteId = request.PacienteId;
+                        obj.FechaNacimiento = (DateTime)request.FechaNacimiento;
+                    obj.Direccion = request.Direccion.ToUpper();
+                    context.Pacientes.Update(obj);
+                    var rpt = await context.SaveChangesAsync();
+                    if (rpt > 0)
+                        return "Exito";
+                    else
+                        return "No se pudo modificar el paciente";
+                }
+                catch (Exception e)
+                {
+                    return "Error " + e.Message;
+                }
             }
             
         }

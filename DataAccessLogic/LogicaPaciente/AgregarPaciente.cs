@@ -33,6 +33,10 @@ namespace DataAccessLogic.LogicaPaciente
             [Display(Name = "FECHA NACIMIENTO")]
             [DataType(DataType.Date)]
             public DateTime? FechaNacimiento { get; set; }
+            [Display(Name = "DIRECCIÓN")]
+            [Required(ErrorMessage = "La direccion es requerida")]
+            [StringLength(200, ErrorMessage = "El dirección solo puede contener 200 caracteres")]
+            public string Direccion { get; set; }
         }
         public class Manejador : IRequestHandler<Ejecuta,string>
         {
@@ -43,25 +47,34 @@ namespace DataAccessLogic.LogicaPaciente
             }
             public async Task<string> Handle(Ejecuta request, CancellationToken cancellationToken)
             {
-                var nveces = context.Pacientes.Where(p => p.NoDuiPaciente.Equals(request.NoDuiPaciente)).Count();
-                if (nveces > 0)
-                    return "El numero de dui ya existe en el sistema";
-                var obj = new Paciente
+                try
                 {
-                    NoDuiPaciente = request.NoDuiPaciente,
-                    NombrePaciente = request.NombrePaciente.ToUpper(),
-                    ApellidoPaciente = request.ApellidoPaciente.ToUpper(),
-                    EdadPaciente = (int)request.EdadPaciente,
-                    FechaCreacion = DateTime.Now,
-                    PacienteId = Guid.NewGuid(),
-                    FechaNacimiento=(DateTime)request.FechaNacimiento
-                };
-                context.Pacientes.Add(obj);
-                var rpt = await context.SaveChangesAsync();
-                if (rpt > 0)
-                    return "Exito";
-                else
-                   return "No se pudo agregar el paciente";
+                    var nveces = context.Pacientes.Where(p => p.NoDuiPaciente.Equals(request.NoDuiPaciente)).Count();
+                    if (nveces > 0)
+                        return "El numero de dui ya existe en el sistema";
+                    var obj = new Paciente
+                    {
+                        NoDuiPaciente = request.NoDuiPaciente,
+                        NombrePaciente = request.NombrePaciente.ToUpper(),
+                        ApellidoPaciente = request.ApellidoPaciente.ToUpper(),
+                        EdadPaciente = (int)request.EdadPaciente,
+                        FechaCreacion = DateTime.Now,
+                        PacienteId = Guid.NewGuid(),
+                        Direccion = request.Direccion.ToUpper(),
+                        PacienteTieneExpediente = "NO",
+                        FechaNacimiento = (DateTime)request.FechaNacimiento
+                    };
+                    context.Pacientes.Add(obj);
+                    var rpt = await context.SaveChangesAsync();
+                    if (rpt > 0)
+                        return "Exito";
+                    else
+                        return "No se pudo agregar el paciente";
+                }
+                catch (Exception e)
+                {
+                    return "Error "+ e.Message;
+                }
             }
             
         }

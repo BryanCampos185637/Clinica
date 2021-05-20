@@ -5,14 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Clinica</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/css/navbar.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link href="~/lib/limonte-sweetalert2/sweetalert2.min.css" rel="stylesheet" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-primary">
+        <a class="navbar-brand text-dark" href="#">Version: Beta</a>
+        <button class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarCollapse"
+                aria-controls="navbarCollapse"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto sidenav" id="navAccordion">
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Servicio" asp-action="Index">Servicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Enfermedad" asp-action="Index">Enfermedad</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Paciente" asp-action="Index">Paciente</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Expediente" asp-action="Index">Expedientes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Cita" asp-action="CrearCita">Crear cita</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Cita" asp-action="Index">Citas creadas</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-dark" onclick="CerrarSesion()">Cerrar sesion</a>
+                </li>
+            </ul>
+            <div class="form-inline ml-auto mt-2 mt-md-0">
+                <h4 class="text-dark">@ViewData["Title"] </h4>
+            </div>
+        </div>
+    </nav>
+
+    <main class="content-wrapper">
+        <div class="container-fluid">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Clinica</a>
+                @RenderBody()
+                <div class="row">
+                    <div class="col-12">
+                        <div class="text-center">
+                            <span>Hecho por: DevSpartan</span><br />
+                            <span>Contactanos: dev.spartan.sv@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+
+
+    @*<header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-primary border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><strong>Versión: Beta</strong></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -20,19 +83,25 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Servicio" asp-action="Index">Servicio</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Enfermedad" asp-action="Index">Enfermedad</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Paciente" asp-action="Index">Paciente</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Servicio" asp-action="Index">Servicio</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Expediente" asp-action="Index">Expedientes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Index">Usuario</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Cita" asp-action="CrearCita">Crear cita</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Cerrar">Cerrar sesion</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Cita" asp-action="Index">Citas creadas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-dark" onclick="CerrarSesion()">Cerrar sesion</a>
                         </li>
                     </ul>
                 </div>
@@ -41,6 +110,18 @@
     </header>
     <div class="container">
         @RenderBody()
+
+        <div class="row">
+            <div class="col-12">
+                <div class="text-center">
+                    <span>Hecho por: DevSpartan</span><br />
+                    <span>Contactanos: dev.spartan.sv@gmail.com</span>
+                </div>
+            </div>
+        </div>
+    </div>*@
+    <div style="display:none">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Cerrar" id="btnCerrarSesion"></a>
     </div>
     @if (TempData["success"] != null || TempData["warning"] != null)
     {
