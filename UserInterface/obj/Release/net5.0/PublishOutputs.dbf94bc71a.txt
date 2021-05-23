@@ -1,6 +1,10 @@
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Release\net5.0\PubTmp\Out\UserInterface.exe
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Release\net5.0\PubTmp\Out\wwwroot\css\navbar.css
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Release\net5.0\PubTmp\Out\wwwroot\css\site.css
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Release\net5.0\PubTmp\Out\wwwroot\favicon.ico
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Release\net5.0\PubTmp\Out\wwwroot\js\InputMask\filtroCodigoExpediente.js
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Release\net5.0\PubTmp\Out\wwwroot\js\InputMask\filtroDUI.js
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Release\net5.0\PubTmp\Out\wwwroot\js\InputMask\pacienteInputMask.js
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Release\net5.0\PubTmp\Out\wwwroot\js\mensajes.js
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Release\net5.0\PubTmp\Out\wwwroot\js\Peticiones AJAX\expedienteAjax.js
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Release\net5.0\PubTmp\Out\wwwroot\js\Peticiones AJAX\UsuarioAJAX.js
@@ -26,6 +30,10 @@ C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Release\net5
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\bootstrap\LICENSE
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\Inputmask-5.x\dist\inputmask.js
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\Inputmask-5.x\dist\inputmask.min.js
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\Inputmask-5.x\dist\jquery.inputmask.js
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\Inputmask-5.x\dist\jquery.inputmask.min.js
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
