@@ -1,4 +1,4 @@
-﻿@model DataAccessLogic.Seguridad.LoginIdentity.Ejecuta
+﻿@model DataAccessLogic.Seguridad.ValidacionSesion.Ejecuta
 @{
     ViewData["Title"] = "Login";
     Layout = null;
@@ -37,14 +37,14 @@
                         }
                     </div>
                     <div class="form-group">
-                        <label asp-for="Email"></label>
-                        <input asp-for="Email" class="form-control" placeholder="Escribe tu correo electronico" />
-                        <span asp-validation-for="Email" class="text-danger"></span>
+                        <label asp-for="NombreUsuario"></label>
+                        <input asp-for="NombreUsuario" class="form-control" placeholder="Escribe tu correo electronico" />
+                        <span asp-validation-for="NombreUsuario" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="password"></label>
-                        <input asp-for="password" class="form-control" placeholder="Escribe tu contraseña" />
-                        <span asp-validation-for="password" class="text-danger"></span>
+                        <label asp-for="Contra"></label>
+                        <input asp-for="Contra" class="form-control" placeholder="Escribe tu contraseña" />
+                        <span asp-validation-for="Contra" class="text-danger"></span>
                     </div>
 
                     <div class="text-center">

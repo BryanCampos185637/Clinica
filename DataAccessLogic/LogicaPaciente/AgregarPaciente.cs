@@ -67,7 +67,7 @@ namespace DataAccessLogic.LogicaPaciente
                     context.Pacientes.Add(obj);
                     var rpt = await context.SaveChangesAsync();
                     if (rpt > 0)
-                        return "Exito";
+                        return "Exito$" + obj.PacienteId.ToString();
                     else
                         return "No se pudo agregar el paciente";
                 }

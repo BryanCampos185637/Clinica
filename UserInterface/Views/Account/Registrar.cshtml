@@ -1,4 +1,4 @@
-﻿@model DataAccessLogic.Seguridad.RegistrarIdentity.Ejecuta
+﻿@model DataAccessLogic.Seguridad.RegistrarUsuario.Ejecuta
 
 @{
     ViewData["Title"] = "Registrar";
@@ -26,29 +26,45 @@
                     <h5>Sistema de clinica <strong>Versión: Beta</strong></h5>
                 </div>
             </div>
-            <div class="offset-lg-4 offset-md-4 col-lg-4 col-md-4 col-sm-12 mt-2">
-                <form asp-action="Registrar">
+            <div class="col-md-12 col-sm-12">
+                <form asp-action="Registrar" id="frmRegistrarUsuario" class="row">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-group">
-                        <label asp-for="Usuario" class="control-label"></label>
-                        <input asp-for="Usuario" class="form-control" placeholder="Escribe tu nombre de usuario" />
-                        <span asp-validation-for="Usuario" class="text-danger"></span>
+                    <div class="form-group col-md-6 col-sm-12">
+                        <label asp-for="NombreCompleto" class="control-label"></label>
+                        <input asp-for="NombreCompleto" class="form-control" placeholder="Escribe tu nombre completo" />
+                        <span asp-validation-for="NombreCompleto" class="text-danger"></span>
                     </div>
-                    <div class="form-group">
-                        <label asp-for="Email" class="control-label"></label>
-                        <input asp-for="Email" class="form-control" placeholder="Escribe tu correo electronico" />
-                        <span asp-validation-for="Email" class="text-danger"></span>
+                    <div class="form-group col-md-6 col-sm-12">
+                        <label asp-for="Edad" class="control-label"></label>
+                        <input asp-for="Edad" class="form-control" placeholder="Escribe tu edad" />
+                        <span asp-validation-for="Edad" class="text-danger"></span>
                     </div>
-                    <div class="form-group">
-                        <label asp-for="password" class="control-label"></label>
-                        <input asp-for="password" class="form-control" placeholder="Escribe tu contraseña" />
-                        <span asp-validation-for="password" class="text-danger"></span>
+                    <div class="form-group col-md-6 col-sm-12">
+                        <label asp-for="Direccion" class="control-label"></label>
+                        <input asp-for="Direccion" class="form-control" placeholder="Escribe tu dirección" />
+                        <span asp-validation-for="Direccion" class="text-danger"></span>
                     </div>
-                    <div class="form-group">
-                        <input type="submit" value="Guardar" class="btn btn-primary btn-block" />
+                    <div class="form-group col-md-6 col-sm-12">
+                        <label asp-for="TipoUsuarioId" class="control-label"></label>
+                        <input asp-for="TipoUsuarioId" class="form-control" value="1" type="hidden" />
+                        <input class="form-control" readonly value="ADMINISTRADOR" />
+                        <span asp-validation-for="TipoUsuarioId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6 col-sm-12">
+                        <label asp-for="NombreUsuario" class="control-label"></label>
+                        <input asp-for="NombreUsuario" class="form-control" placeholder="Escribe tu nombre de usuario" />
+                        <span asp-validation-for="NombreUsuario" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6 col-sm-12">
+                        <label asp-for="Contra" class="control-label"></label>
+                        <input asp-for="Contra" class="form-control" placeholder="Escribe tu contraseña" id="Contra" />
+                        <span asp-validation-for="Contra" class="text-danger"></span>
+                    </div>
+                    <div class="form-group offset-md-3 col-md-6 col-sm-12">
+                        <input type="submit" value="Guardar" class="btn btn-primary btn-block" id="btGuardar" />
                         <a asp-action="Login" class="btn btn-danger btn-block">Regresar</a>
                     </div>
-                   
+
                 </form>
             </div>
         </div>
@@ -57,3 +73,6 @@
 </body>
 </html>
 
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

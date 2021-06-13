@@ -1,11 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Models;
 using PersistenceData.Config;
 
 namespace PersistenceData
 {
-    public class AppDbContext: IdentityDbContext
+    public class AppDbContext : DbContext
     {
         /// <summary>
         /// Inyeccion de la conexion a la base de datos
@@ -26,16 +25,19 @@ namespace PersistenceData
             new ServicioConfig(modelBuilder.Entity<Servicio>());
             new UsuarioConfig(modelBuilder.Entity<Usuario>());
             new ExpedienteConfig(modelBuilder.Entity<Expediente>());
+            new BotonConfig(modelBuilder.Entity<Boton>());
         }
         
         public DbSet<Cita>Citas { get; set; }
         public DbSet<Enfermedad>Enfermedades { get; set; }
         public DbSet<Paciente>Pacientes { get; set; }
         public DbSet<Pagina>Paginas { get; set; }
-        public DbSet<PaginaTipoUsuario>paginaTipoUsuarios { get; set; }
+        public DbSet<PaginaTipoUsuario>PaginaTipoUsuarios { get; set; }
         public DbSet<Servicio>Servicios { get; set; }
         public DbSet<TipoUsuario>TipoUsuarios { get; set; }
         public DbSet<Usuario>Usuarios { get; set; }
         public DbSet<Expediente>Expedientes { get; set; }
+        public DbSet<Boton>Botones { get; set; }
+        public DbSet<BotonTipoUsuario>botonTipoUsuarios { get; set; }
     }
 }

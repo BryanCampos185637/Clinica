@@ -2,9 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
+using UserInterface.Helpers.FiltroSeguridad;
 
 namespace UserInterface.Controllers
 {
+    [ServiceFilter(typeof(FiltroAutenticacion))]
     public class ExpedienteController : MiControladorBaseController
     {
         public async Task<IActionResult> Index(string filtro = "", int pagina = 1, int cantidad = 5)

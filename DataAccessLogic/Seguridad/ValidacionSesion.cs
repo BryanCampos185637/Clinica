@@ -42,7 +42,6 @@ namespace DataAccessLogic.Seguridad
                 catch (Exception e)
                 {
                     return false;
-                    throw;
                 }
             }
         }

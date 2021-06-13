@@ -1,16 +1,11 @@
 ﻿using DataAccessLogic.LogicaServicio;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using UserInterface.FiltroSeguridad;
+using UserInterface.Helpers.FiltroSeguridad;
 
 namespace UserInterface.Controllers
 {
-    //[ServiceFilter(typeof(FiltroDeSeguridadWeb))]
-    [Authorize]
+    [ServiceFilter(typeof(FiltroAutenticacion))]
     public class ServicioController : MiControladorBaseController
     {
         public async Task<IActionResult> Index(string filtro = "", int pagina = 1, int cantidad = 5)

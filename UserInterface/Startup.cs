@@ -2,12 +2,12 @@ using DataAccessLogic.LogicaPaciente;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PersistenceData;
+using UserInterface.Helpers.FiltroSeguridad;
 
 namespace UserInterface
 {
@@ -29,9 +29,15 @@ namespace UserInterface
                 p.UseSqlServer(Configuration.GetConnectionString("local"));
             });
             //identity
-            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
-            //AddMediatR
+            //services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+            //MediatR
             services.AddMediatR(typeof(AgregarPaciente.Manejador).Assembly);
+            services.AddSession(opt=> 
+            {
+                //opt.Cookie.Path = "/Account/Login";
+            });
+            //mi filtro de seguridad
+            services.AddScoped<FiltroAutenticacion>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +51,9 @@ namespace UserInterface
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            app.UseSession();
+
             app.UseStaticFiles();
 
             app.UseRouting();

@@ -2,12 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using DataAccessLogic.LogicaTipoUsuario;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+using UserInterface.Helpers.FiltroSeguridad;
 
 namespace UserInterface.Controllers
 {
-    //[ServiceFilter(typeof(FiltroDeSeguridadWeb))]
-    [Authorize]
+    [ServiceFilter(typeof(FiltroAutenticacion))]
     public class UsuarioController : MiControladorBaseController
     {
         public async Task<IActionResult> Index(string filtro = "", int pagina = 1, int cantidad = 5)

@@ -23,7 +23,7 @@
                     <th>No DUI</th>
                     <th>NOMBRE</th>
                     <th>ENFERMEDAD</th>
-                    <th>No Expediente</th>
+                    <th>Cod Expediente</th>
                     <th class="text-center">OPCIONES</th>
                 </tr>
             </thead>
@@ -36,7 +36,7 @@
                             <td>@item.Paciente.NoDuiPaciente</td>
                             <td>@item.Paciente.NombrePaciente @item.Paciente.ApellidoPaciente</td>
                             <td>@item.Enfermedad.NombreEnfermedad</td>
-                            <td>@item.ExpedienteId</td>
+                            <td>@item.CodidoExpediente</td>
                             <td class="text-center">
                                 <a class="btn btn-success btn-sm mr-1" asp-action="Guardar" asp-route-id="@item.ExpedienteId">Citar</a>
                             </td>

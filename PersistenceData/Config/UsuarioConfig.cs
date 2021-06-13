@@ -13,6 +13,9 @@ namespace PersistenceData.Config
         {
             entityTypeBuilder.Property(p => p.Contra).IsRequired().HasMaxLength(50);
             entityTypeBuilder.Property(p => p.NombreUsuario).IsRequired().HasMaxLength(50);
+            entityTypeBuilder.Property(p => p.NombreCompleto).IsRequired().HasMaxLength(100);
+            entityTypeBuilder.Property(p => p.Edad).IsRequired();
+            entityTypeBuilder.Property(p => p.Direccion).HasMaxLength(100);
         }
     }
 }

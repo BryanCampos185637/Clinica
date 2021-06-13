@@ -44,6 +44,8 @@ namespace DataAccessLogic.LogicaCita
                     var exiteCita = await context.Citas.Where(p => p.ExpedienteId.Equals(request.ExpedienteId) && p.FechaCita.Equals(request.FechaCita)).AnyAsync();
                     if (exiteCita)
                         return "El paciente ya tiene cita asignada para la fecha establecida";
+                    if (request.FechaCita <= DateTime.Now)
+                        return "La fecha debe ser igual o posterior a "+DateTime.Now.ToShortDateString();
                     context.Citas.Add(new Cita
                     {
                         CitaId = Guid.NewGuid(),

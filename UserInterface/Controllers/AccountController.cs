@@ -1,9 +1,7 @@
 ﻿using DataAccessLogic.Seguridad;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using DataAccessLogic.LogicaUsuario;
 using System.Threading.Tasks;
-using Models;
 using Microsoft.AspNetCore.Authorization;
 
 namespace UserInterface.Controllers
@@ -16,19 +14,20 @@ namespace UserInterface.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Login(LoginIdentity.Ejecuta parametros)
+        public async Task<IActionResult> Login(ValidacionSesion.Ejecuta parametros)
         {
             if (ModelState.IsValid)
             {
+                parametros.Contra = Helpers.CifrarCadenas.cifrar(parametros.Contra);
                 var rpt = await _mediator.Send(parametros);
                 if (rpt)
                 {
-                    //Helpers.SessionHelper.crearCookieSession(HttpContext.Session, "login",
-                    //   await _mediator.Send(new ObtenerUsuarioLogueado.Ejecuta
-                    //   {
-                    //       NombreUsuario = parametros.NombreUsuario,
-                    //       Contra = parametros.Contra
-                    //   }));
+                    Helpers.SessionHelper.crearCookieSession(HttpContext.Session, "login",
+                       await _mediator.Send(new ObtenerUsuarioLogueado.Ejecuta
+                       {
+                           NombreUsuario = parametros.NombreUsuario,
+                           Contra = parametros.Contra
+                       }));
                     return Redirect("/Home/Index");
                 }
                 else
@@ -45,11 +44,11 @@ namespace UserInterface.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Registrar(RegistrarIdentity.Ejecuta parametros)
+        public async Task<IActionResult> Registrar(RegistrarUsuario.Ejecuta parametros)
         {
             if (ModelState.IsValid)
             {
-               
+                parametros.Contra = Helpers.CifrarCadenas.cifrar(parametros.Contra);
                 var rpt = await _mediator.Send(parametros);
                 if (rpt=="Exito")
                 {
@@ -65,13 +64,10 @@ namespace UserInterface.Controllers
                 return View(parametros);
         }
         
-        public async Task<IActionResult> Cerrar()
+        public  IActionResult Cerrar()
         {
-            var rpt = await _mediator.Send(new DataAccessLogic.Seguridad.CerrarSesion.Ejecuta());
-            if(rpt)
-                return Redirect("Login");
-            else
-                return Redirect("/Home/Index");
+            HttpContext.Session.Remove("login");
+            return Redirect("Login");
         }
     }
 }

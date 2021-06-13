@@ -1,0 +1,43 @@
+﻿
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<div class="modal fade" id="modalDetalle" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="card-header bg-primary">
+                <h3>Paginas asignadas</h3>
+            </div>
+            <form>
+                <div class="modal-body">
+                    <table class="table table-hover">
+                        @*<thead>
+                            <tr>
+                                <th>
+                                    Paginas asignadas
+                                </th>
+                            </tr>
+                        </thead>*@
+                        <tbody id="tbPaginas"></tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-sm btn-primary" data-dismiss="modal" id="btnCerrar">Cerrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    function MostrarPaginasAsignadas(id) {
+        $.get('/rol/DetallePaginasAsignadas?id=' + id, (data) => {
+            var contenido = '';
+            $.each(data, (key, item) => {
+                contenido += '<tr>';
+                contenido += '<td>' + item.nombrePagina + '</td>';
+                contenido += '</tr>';
+            });
+            $('#tbPaginas').html(contenido);
+        })
+    }
+</script>

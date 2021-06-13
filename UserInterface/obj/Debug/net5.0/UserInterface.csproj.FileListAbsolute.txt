@@ -1319,7 +1319,6 @@ C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Enfermedad\Guardar.cshtml.g.cs
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Enfermedad\Index.cshtml.g.cs
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Paciente\Editar.cshtml.g.cs
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Paciente\Guardar.cshtml.g.cs
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Paciente\Index.cshtml.g.cs
@@ -1351,3 +1350,11 @@ C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Cita\Guardar.cshtml.g.cs
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Cita\CrearCita.cshtml.g.cs
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Cita\Index.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Pagina\Index.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Pagina\Guardar.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Pagina\Editar.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Paciente\CrearExpediente.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Rol\Index.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Rol\Guardar.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Rol\Editar.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Rol\_DetallePaginasAsignadas.cshtml.g.cs

@@ -6,7 +6,7 @@ namespace UserInterface.Helpers
 {
     public class CifrarCadenas
     {
-        public static string clave = "spartandev"; // 
+        private static string clave = "5p4rt4nd3v"; 
         public static string cifrar(string cadena)
         {
             byte[] llave; //Arreglo donde guardaremos la llave para el cifrado 3DES.

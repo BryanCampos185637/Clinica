@@ -24,6 +24,7 @@ namespace DataAccessLogic.LogicaExpediente
             //propiedades para viewModel
             public List<Enfermedad> ListaEnfermedad { get; set; }
             public List<Paciente> ListaPaciente { get; set; }
+            public string NombreCompleto { get; set; }
         }
         public class Manejador : IRequestHandler<Ejecuta, string>
         {
