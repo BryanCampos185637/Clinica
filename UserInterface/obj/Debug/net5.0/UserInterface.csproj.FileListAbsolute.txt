@@ -1300,7 +1300,6 @@ C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\DataAccessLogic.pdb
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\Models.pdb
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\PersistenceData.pdb
-C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\UserInterface.csprojAssemblyReference.cache
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\UserInterface.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\UserInterface.AssemblyInfoInputs.cache
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\UserInterface.AssemblyInfo.cs
@@ -1358,3 +1357,8 @@ C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Rol\Guardar.cshtml.g.cs
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Rol\Editar.cshtml.g.cs
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Rol\_DetallePaginasAsignadas.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\UserInterface.csproj.AssemblyReference.cache
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Home\_Menu.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Account\Error401.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Cita\Editar.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\libman.json

@@ -4,17 +4,13 @@
 }
 
 <div class="row">
-    @*<fieldset class="col-md-12 col-sm-12 mb-2">
-            <legend>Botonera @ViewData["Title"]</legend>
-            <a asp-action="Guardar" class="btn btn-primary btn-sm">Nuevo</a>
-        </fieldset>*@
     <fieldset class="col-md-12 col-sm-12">
         <legend>Lista de pacientes</legend>
         <form method="get" asp-action="CrearCita" id="frmFiltroBusqueda" class="mb-1">
             <div class="input-group">
                 <input type="text" autocomplete="off" class="form-control" placeholder="Escribe el numero de dui" id="filtro" name="filtro" value="@ViewBag.filtro" />
-                <button type="submit" class="btn btn-success btn-sm">Buscar</button>
-                <button type="button" class="btn btn-danger btn-sm" onclick="LimpiarFormularioBusqueda()">Limpiar</button>
+                <button type="submit" class="btn btn-success btn-sm" title="Buscar"><i class="fas fa-search"></i></button>
+                <button type="button" class="btn btn-danger btn-sm" onclick="LimpiarFormularioBusqueda()" title="Limpiar busqueda"><i class="fas fa-eraser"></i></button>
             </div>
         </form>
         <table class="table table-hover table-bordered table-responsive-sm">
@@ -38,7 +34,7 @@
                             <td>@item.Enfermedad.NombreEnfermedad</td>
                             <td>@item.CodidoExpediente</td>
                             <td class="text-center">
-                                <a class="btn btn-success btn-sm mr-1" asp-action="Guardar" asp-route-id="@item.ExpedienteId">Citar</a>
+                                <a class="btn btn-success btn-sm mr-1" asp-action="Guardar" asp-route-id="@item.ExpedienteId" title="Citar"><i class="fas fa-calendar"></i></a>
                             </td>
                         </tr>
                     }

@@ -10,6 +10,7 @@ namespace UserInterface.Controllers
     [ServiceFilter(typeof(FiltroAutenticacion))]
     public class CitaController : MiControladorBaseController
     {
+        [ServiceFilter(typeof(FiltroAutorizacion))]
         public async Task<IActionResult> Index(string filtro = "", int pagina = 1, int cantidad = 5)
         {
             if (filtro == null) { filtro = ""; }
@@ -21,6 +22,7 @@ namespace UserInterface.Controllers
                 cantidadItems = cantidad
             }));
         }
+        [ServiceFilter(typeof(FiltroAutorizacion))]
         public async Task<IActionResult> CrearCita(string filtro = "", int pagina = 1, int cantidad = 5)
         {
             if (filtro == null) { filtro = ""; }
@@ -32,6 +34,7 @@ namespace UserInterface.Controllers
                 cantidadItems = cantidad
             }));
         }
+        [ServiceFilter(typeof(FiltroAutorizacion))]
         public async Task<IActionResult> Guardar(Guid id)
         {
             var datosExpediente = await _mediator.Send(new ObtenerDatosExpediente.Ejecuta { ExpedienteId = id });
@@ -94,6 +97,43 @@ namespace UserInterface.Controllers
                 TempData["success"] = rpt;
                 TempData["icono"] = "warning";
                 return Redirect("Index");
+            }
+        }
+        [ServiceFilter(typeof(FiltroAutorizacion))]
+        public async Task<IActionResult> Editar(Guid id)
+        {
+            return View(await _mediator.Send(new ObtenerCitaPorId.Ejecuta { CitaId = id }));
+        }
+        [HttpPost]
+        public async Task<IActionResult> Editar(ModificarCita.Ejecuta parametros)
+        {
+            if (ModelState.IsValid)
+            {
+                var rpt = await _mediator.Send(parametros);
+                if (rpt == "Exito")
+                {
+                    TempData["success"] = "Se modifico correctamente";
+                    TempData["icono"] = "success";
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    var datos = await _mediator.Send(new ObtenerCitaPorId.Ejecuta { CitaId = parametros.CitaId });
+                    parametros.Paciente = datos.Paciente;
+                    parametros.ListaServicio = datos.ListaServicio;
+                    parametros.Enfermedad = datos.Enfermedad;
+                    TempData["success"] = rpt;
+                    TempData["icono"] = "warning";
+                    return View(parametros);
+                }
+            }
+            else
+            {
+                var datos = await _mediator.Send(new ObtenerCitaPorId.Ejecuta { CitaId = parametros.CitaId });
+                parametros.Paciente = datos.Paciente;
+                parametros.ListaServicio = datos.ListaServicio;
+                parametros.Enfermedad = datos.Enfermedad;
+                return View(parametros);
             }
         }
     }

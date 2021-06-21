@@ -1,7 +1,10 @@
 ﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
+using Models;
 using PersistenceData;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -13,9 +16,20 @@ namespace DataAccessLogic.LogicaCita
         public class Ejecuta : IRequest<string>
         {
             public Guid CitaId { get; set; }
+            [Required]
             public Guid ExpedienteId { get; set; }
-            public int ServicioId { get; set; }
-            public DateTime FechaCita { get; set; }
+            [Required(ErrorMessage = "Debes seleccionar un servicio")]
+            [Display(Name = "Servicio")]
+            public int? ServicioId { get; set; }
+            [Required(ErrorMessage = "Debes seleccionar una fecha")]
+            [DataType(DataType.Date)]
+            [Display(Name = "Fecha de cita")]
+            public DateTime? FechaCita { get; set; }
+
+            //solo de vista
+            public List<Servicio> ListaServicio { get; set; }
+            public Paciente Paciente { get; set; }
+            public Enfermedad Enfermedad { get; set; }
         }
         public class Manejador : IRequestHandler<Ejecuta, string>
         {
@@ -25,9 +39,22 @@ namespace DataAccessLogic.LogicaCita
                 context = dbContext;
             }
 
-            public Task<string> Handle(Ejecuta request, CancellationToken cancellationToken)
+            public async Task<string> Handle(Ejecuta request, CancellationToken cancellationToken)
             {
-                throw new NotImplementedException();
+                try
+                {
+                    var cita = await context.Citas.Where(p => p.CitaId == request.CitaId).FirstOrDefaultAsync();
+                    cita.FechaCita = (DateTime)request.FechaCita;
+                    cita.ServicioId = (int)request.ServicioId;
+                    var rpt = await context.SaveChangesAsync();
+                    if (rpt <= 0)
+                        return "No se puedo cambiar la fecha de la cita";
+                }
+                catch (Exception e)
+                {
+                    return "Error " + e.Message;
+                }
+                return "Exito";
             }
         }
     }

@@ -20,7 +20,7 @@ namespace DataAccessLogic.LogicaUsuario
             [Required(ErrorMessage ="El nombre de usuario es requerido")]
             [Display(Name ="NOMBRE USUARIO")]
             public string NombreUsuario { get; set; }
-            [Required(ErrorMessage = "La contraseña es requerida")]
+            //[Required(ErrorMessage = "La contraseña es requerida")]
             [Display(Name = "CONTRASEÑA")]
             [DataType(DataType.Password)]
             public string Contra { get; set; }
@@ -44,13 +44,11 @@ namespace DataAccessLogic.LogicaUsuario
                                         && p.UsuarioId!=request.UsuarioId).AnyAsync();
                     if (exite)
                         return "El nombre de usuario ya esta en uso";
-                    context.Usuarios.Update(new Usuario
-                    {
-                        UsuarioId=request.UsuarioId,
-                        NombreUsuario = request.NombreUsuario.ToUpper(),
-                        Contra = request.Contra,
-                        TipoUsuarioId = (int)request.TipoUsuarioId
-                    });
+                    var user = await context.Usuarios.Where(p => p.UsuarioId == request.UsuarioId).FirstOrDefaultAsync();
+                    user.NombreUsuario = request.NombreUsuario.ToUpper();
+                    if (request.Contra != null && request.Contra != "") 
+                        user.Contra = request.Contra;
+                    user.TipoUsuarioId = (int)request.TipoUsuarioId;
                     var rpt = await context.SaveChangesAsync();
                     if (rpt <= 0)
                         return "No se pudo guardar el usuario";

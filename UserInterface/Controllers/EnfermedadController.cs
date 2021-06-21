@@ -9,6 +9,7 @@ namespace UserInterface.Controllers
     [ServiceFilter(typeof(FiltroAutenticacion))]
     public class EnfermedadController : MiControladorBaseController
     {
+        [ServiceFilter(typeof(FiltroAutorizacion))]
         public async Task<IActionResult> Index(string filtro = "", int pagina = 1, int cantidad = 5)
         {
             if (filtro == null) { filtro = ""; }
@@ -20,6 +21,7 @@ namespace UserInterface.Controllers
                 cantidadItems = cantidad
             }));
         }
+        [ServiceFilter(typeof(FiltroAutorizacion))]
         public IActionResult Guardar()
         {
             return View();
@@ -48,6 +50,7 @@ namespace UserInterface.Controllers
                 return View(parametros);
             }
         }
+        [ServiceFilter(typeof(FiltroAutorizacion))]
         public async Task<IActionResult> Editar(Int64 id)
         {
             var obj = await _mediator.Send(new ObtenerPaciente.Ejecuta { EnfermedadId = id });

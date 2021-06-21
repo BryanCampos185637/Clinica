@@ -5,6 +5,6 @@ function mensaje() {
         icon: document.getElementById('txtIconoServer').value,
         title: document.getElementById('txtMensajeServidor').value,
         showConfirmButton: false,
-        timer: 1500
+        timer: 3000
     })
 }

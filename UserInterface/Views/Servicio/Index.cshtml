@@ -13,8 +13,8 @@
         <form method="get" asp-action="Index" id="frmFiltroBusqueda" class="mb-1">
             <div class="input-group">
                 <input type="text" autocomplete="off" class="form-control" placeholder="Escribe el nombre del @ViewData["Title"]" id="filtro" name="filtro" value="@ViewBag.filtro" />
-                <button type="submit" class="btn btn-success btn-sm">Buscar</button>
-                <button type="button" class="btn btn-danger btn-sm" onclick="LimpiarFormularioBusqueda()">Limpiar</button>
+                <button type="submit" class="btn btn-success btn-sm" title="Buscar"><i class="fas fa-search"></i></button>
+                <button type="button" class="btn btn-danger btn-sm" onclick="LimpiarFormularioBusqueda()" title="Limpiar busqueda"><i class="fas fa-eraser"></i></button>
             </div>
         </form>
         <table class="table table-hover table-bordered table-responsive-sm">
@@ -34,8 +34,8 @@
                             <td>@item.NombreServicio</td>
                             <td>@item.DescripcionServicio</td>
                             <td class="text-center">
-                                <button type="button" class="btn btn-danger btn-sm mr-1" onclick="EliminarRegistro(@item.ServicioId)">Eliminar</button>
-                                <a class="btn btn-success btn-sm mr-1" asp-action="Editar" asp-route-id="@item.ServicioId">Editar</a>
+                                <button type="button" class="btn btn-danger btn-sm mr-1" onclick="EliminarRegistro(@item.ServicioId)"><i class="fas fa-trash"></i></button>
+                                <a class="btn btn-success btn-sm mr-1" asp-action="Editar" asp-route-id="@item.ServicioId"><i class="fas fa-edit"></i></a>
                             </td>
                         </tr>
                     }

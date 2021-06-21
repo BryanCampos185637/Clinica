@@ -1,9 +1,12 @@
 ﻿using DataAccessLogic.LogicaRoles;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using UserInterface.Helpers.FiltroSeguridad;
 
 namespace UserInterface.Controllers
 {
+    [ServiceFilter(typeof(FiltroAutenticacion))]
+    //[ServiceFilter(typeof(FiltroAutorizacion))]
     public class RolController : MiControladorBaseController
     {
         public async Task<IActionResult> Index(string filtro = "", int pagina = 1, int cantidad = 5)

@@ -1,0 +1,57 @@
+﻿<div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto sidenav" id="navAccordion">
+        <li class="nav-item">
+            <a class="nav-link text-light" asp-area="" asp-controller="Rol" asp-action="Index">
+                <i class="fas fa-exclamation"></i> Roles
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-light" asp-area="" asp-controller="Usuario" asp-action="Index">
+                <i class="fas fa-user"></i> Usuarios
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-light" asp-area="" asp-controller="Servicio" asp-action="Index">
+                <i class="fas fa-server"></i> Servicio
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-light" asp-area="" asp-controller="Enfermedad" asp-action="Index">
+                <i class="fas fa-list"></i> Enfermedad
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-light" asp-area="" asp-controller="Paciente" asp-action="Index">
+                <i class="fas fa-user"></i> Paciente
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-light" asp-area="" asp-controller="Expediente" asp-action="Index">
+                <i class="fas fa-folder"></i> Expedientes
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-light" asp-area="" asp-controller="Cita" asp-action="CrearCita">
+                <i class="fas fa-calendar-check"></i> Crear cita
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-light" asp-area="" asp-controller="Cita" asp-action="Index">
+                <i class="fas fa-calendar"></i> Citas creadas
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-light" asp-area="" asp-controller="Pagina" asp-action="Index">
+                <i class="fas fa-pager"></i> Paginas
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link text-light" onclick="CerrarSesion()">
+                <i class="fas fa-door-open"></i>Cerrar sesion
+            </a>
+        </li>
+    </ul>
+    <div class="form-inline ml-auto mt-2 mt-md-0">
+        <h4 class="text-light">@ViewData["Title"] </h4>
+    </div>
+</div>

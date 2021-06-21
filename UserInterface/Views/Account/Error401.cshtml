@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "Error";
+}
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-2 col-sm-12 text-center">
+            <p><i class="fa fa-exclamation-triangle fa-5x"></i><br />Status Code: 401</p>
+        </div>
+        <div class="col-md-10 col-sm-12">
+            <h3>OPPSSS!!!! Lo siento...</h3>
+            <p>Error no cuentas con los permisos necesarios para acceder a la pagina: @ViewBag.Pagina <br />Si deseas acceder a esta pagina comunicate con el administrador del sistema</p>
+            <a class="btn btn-danger" asp-controller="Home" asp-action="Index">Ir a inicio</a>
+        </div>
+    </div>
+</div>
+

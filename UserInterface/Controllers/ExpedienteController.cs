@@ -9,6 +9,7 @@ namespace UserInterface.Controllers
     [ServiceFilter(typeof(FiltroAutenticacion))]
     public class ExpedienteController : MiControladorBaseController
     {
+        [ServiceFilter(typeof(FiltroAutorizacion))]
         public async Task<IActionResult> Index(string filtro = "", int pagina = 1, int cantidad = 5)
         {
             if (filtro == null) { filtro = ""; }
@@ -20,7 +21,7 @@ namespace UserInterface.Controllers
                 cantidadItems = cantidad
             }));
         }
-
+        [ServiceFilter(typeof(FiltroAutorizacion))]
         public async Task<IActionResult> Guardar()
         {
             var lst = await _mediator.Send(new ObtenerListas.Ejecuta { esEditar = false });
@@ -77,6 +78,7 @@ namespace UserInterface.Controllers
                 return Redirect("Index");
             }
         }
+        [ServiceFilter(typeof(FiltroAutorizacion))]
         public async Task<IActionResult> Editar(Guid id)
         {
             var obj = await _mediator.Send(new ObtenerExpediente.Ejecuta { ExpedienteId = id });

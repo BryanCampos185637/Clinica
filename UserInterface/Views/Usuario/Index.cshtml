@@ -1,6 +1,6 @@
 ﻿@model Models.DTO.UsuarioDTO
 @{
-    ViewData["Title"] = "Usuario";
+    ViewData["Title"] = "Usuarios";
 }
 
 <div class="row">
@@ -13,14 +13,15 @@
         <form method="get" asp-action="Index" id="frmFiltroBusqueda" class="mb-1">
             <div class="input-group">
                 <input type="text" autocomplete="off" class="form-control" placeholder="Escribe el nombre del @ViewData["Title"]" id="filtro" name="filtro" value="@ViewBag.filtro" />
-                <button type="submit" class="btn btn-success btn-sm">Buscar</button>
-                <button type="button" class="btn btn-danger btn-sm" onclick="LimpiarFormularioBusqueda()">Limpiar</button>
+                <button type="submit" class="btn btn-success btn-sm" title="Buscar"><i class="fas fa-search"></i></button>
+                <button type="button" class="btn btn-danger btn-sm" onclick="LimpiarFormularioBusqueda()" title="Limpiar busqueda"><i class="fas fa-eraser"></i></button>
             </div>
         </form>
         <table class="table table-hover table-bordered table-responsive-sm">
             <thead>
                 <tr>
-                    <th>NOMBRE USUARIO</th>
+                    <th>NOMBRE</th>
+                    <th>USUARIO</th>
                     <th>ROL</th>
                     <th class="text-center">OPCIONES</th>
                 </tr>
@@ -31,11 +32,12 @@
                     foreach (var item in Model.ListaUsuario)
                     {
                         <tr>
+                            <td>@item.NombreCompleto</td>
                             <td>@item.NombreUsuario</td>
                             <td>@item.TipoUsuario.NombreTipoUsuario</td>
                             <td class="text-center">
-                                <button type="button" class="btn btn-danger btn-sm mr-1" onclick="EliminarRegistro(@item.UsuarioId)">Eliminar</button>
-                                <a class="btn btn-success btn-sm mr-1" asp-action="Editar" asp-route-id="@item.UsuarioId">Editar</a>
+                                <button type="button" class="btn btn-danger btn-sm mr-1" onclick="EliminarRegistro(@item.UsuarioId)"><i class="fas fa-trash"></i></button>
+                                <a class="btn btn-success btn-sm mr-1" asp-action="Editar" asp-route-id="@item.UsuarioId"><i class="fas fa-edit"></i></a>
                             </td>
                         </tr>
                     }

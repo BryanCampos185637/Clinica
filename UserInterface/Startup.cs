@@ -38,6 +38,7 @@ namespace UserInterface
             });
             //mi filtro de seguridad
             services.AddScoped<FiltroAutenticacion>();
+            services.AddScoped<FiltroAutorizacion>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -4,13 +4,63 @@
     ViewData["Title"] = "Guardar";
 }
 
-<h1>Guardar</h1>
-
-<h4>Usuario</h4>
-<hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Guardar">
+    <div class="col-12 mt-md-3">
+        <div class="text-center">
+            <h4>@ViewData["Title"] usuario</h4>
+            <h6>Sistema de clinica <strong>Versión: Beta</strong></h6>
+        </div>
+    </div>
+    <div class="offset-lg-2 offset-md-2 col-lg-8 col-md-8 col-sm-12 mt-2">
+        <form asp-action="Guardar" class="row">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group col-md-6 col-sm-12">
+                <label asp-for="NombreCompleto" class="control-label"></label>
+                <input asp-for="NombreCompleto" class="form-control" placeholder="Escribe tu nombre completo" />
+                <span asp-validation-for="NombreCompleto" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6 col-sm-12">
+                <label asp-for="Edad" class="control-label"></label>
+                <input asp-for="Edad" class="form-control" placeholder="Escribe tu edad" />
+                <span asp-validation-for="Edad" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6 col-sm-12">
+                <label asp-for="Direccion" class="control-label"></label>
+                <input asp-for="Direccion" class="form-control" placeholder="Escribe tu dirección" />
+                <span asp-validation-for="Direccion" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6 col-sm-12">
+                <label asp-for="TipoUsuarioId" class="control-label"></label>
+                <select asp-for="TipoUsuarioId" class="form-control" id="TipoUsuarioId">
+                    @if (Model.ListatipoUsuarios != null && Model.ListatipoUsuarios.Count > 0)
+                    {
+                        <option value="">--Selecciona una opcion--</option>
+                        @foreach (var item in Model.ListatipoUsuarios)
+                        {
+                            <option value="@item.TipoUsuarioId">@item.NombreTipoUsuario: @item.DescripcionTipoUsuario</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="TipoUsuarioId" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6 col-sm-12">
+                <label asp-for="NombreUsuario" class="control-label"></label>
+                <input asp-for="NombreUsuario" class="form-control" placeholder="Escribe tu nombre de usuario" />
+                <span asp-validation-for="NombreUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6 col-sm-12">
+                <label asp-for="Contra" class="control-label"></label>
+                <input asp-for="Contra" class="form-control" placeholder="Escribe tu contraseña" id="Contra" />
+                <span asp-validation-for="Contra" class="text-danger"></span>
+            </div>
+            <div class="form-group col-12">
+                <input type="submit" value="Guardar" class="btn btn-primary btn-block" id="btGuardar" />
+                <a asp-action="Index" class="btn btn-danger btn-block">Regresar</a>
+            </div>
+
+        </form>
+
+        @*<form asp-action="Guardar">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="NombreUsuario" class="control-label"></label>
@@ -37,12 +87,13 @@
                 <span asp-validation-for="TipoUsuarioId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Guardar" class="btn btn-primary btn-block" />
+                <a asp-action="Index" class="btn btn-danger btn-block">Regresar</a>
             </div>
-        </form>
+        </form>*@
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

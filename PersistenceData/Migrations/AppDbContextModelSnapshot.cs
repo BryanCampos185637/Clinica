@@ -19,55 +19,6 @@ namespace PersistenceData.Migrations
                 .HasAnnotation("ProductVersion", "5.0.5")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Models.Boton", b =>
-                {
-                    b.Property<int>("BotonId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Descripcion")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("NombreBoton")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<int>("PaginaId")
-                        .HasColumnType("int");
-
-                    b.HasKey("BotonId");
-
-                    b.HasIndex("PaginaId");
-
-                    b.ToTable("Botones");
-                });
-
-            modelBuilder.Entity("Models.BotonTipoUsuario", b =>
-                {
-                    b.Property<int>("BotonTipoUsuarioId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("BotonId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TipoUsuarioId")
-                        .HasColumnType("int");
-
-                    b.HasKey("BotonTipoUsuarioId");
-
-                    b.HasIndex("BotonId");
-
-                    b.HasIndex("TipoUsuarioId");
-
-                    b.ToTable("botonTipoUsuarios");
-                });
-
             modelBuilder.Entity("Models.Cita", b =>
                 {
                     b.Property<Guid>("CitaId")
@@ -146,6 +97,29 @@ namespace PersistenceData.Migrations
                     b.HasIndex("PacienteId");
 
                     b.ToTable("Expedientes");
+                });
+
+            modelBuilder.Entity("Models.FotoUsuario", b =>
+                {
+                    b.Property<int>("FotoUsuarioId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<byte[]>("Archivo")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("Extension")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("int");
+
+                    b.HasKey("FotoUsuarioId");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("FotoUsuarios");
                 });
 
             modelBuilder.Entity("Models.Paciente", b =>
@@ -329,36 +303,6 @@ namespace PersistenceData.Migrations
                     b.ToTable("Usuarios");
                 });
 
-            modelBuilder.Entity("Models.Boton", b =>
-                {
-                    b.HasOne("Models.Pagina", "Pagina")
-                        .WithMany()
-                        .HasForeignKey("PaginaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Pagina");
-                });
-
-            modelBuilder.Entity("Models.BotonTipoUsuario", b =>
-                {
-                    b.HasOne("Models.Boton", "Boton")
-                        .WithMany()
-                        .HasForeignKey("BotonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Models.TipoUsuario", "TipoUsuario")
-                        .WithMany()
-                        .HasForeignKey("TipoUsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Boton");
-
-                    b.Navigation("TipoUsuario");
-                });
-
             modelBuilder.Entity("Models.Cita", b =>
                 {
                     b.HasOne("Models.Expediente", "Expediente")
@@ -395,6 +339,17 @@ namespace PersistenceData.Migrations
                     b.Navigation("Enfermedad");
 
                     b.Navigation("Paciente");
+                });
+
+            modelBuilder.Entity("Models.FotoUsuario", b =>
+                {
+                    b.HasOne("Models.Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("Models.PaginaTipoUsuario", b =>

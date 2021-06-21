@@ -25,9 +25,8 @@ namespace PersistenceData
             new ServicioConfig(modelBuilder.Entity<Servicio>());
             new UsuarioConfig(modelBuilder.Entity<Usuario>());
             new ExpedienteConfig(modelBuilder.Entity<Expediente>());
-            new BotonConfig(modelBuilder.Entity<Boton>());
         }
-        
+        public DbSet<FotoUsuario>FotoUsuarios { get; set; }
         public DbSet<Cita>Citas { get; set; }
         public DbSet<Enfermedad>Enfermedades { get; set; }
         public DbSet<Paciente>Pacientes { get; set; }
@@ -37,7 +36,5 @@ namespace PersistenceData
         public DbSet<TipoUsuario>TipoUsuarios { get; set; }
         public DbSet<Usuario>Usuarios { get; set; }
         public DbSet<Expediente>Expedientes { get; set; }
-        public DbSet<Boton>Botones { get; set; }
-        public DbSet<BotonTipoUsuario>botonTipoUsuarios { get; set; }
     }
 }

@@ -8,6 +8,7 @@ namespace UserInterface.Controllers
     [ServiceFilter(typeof(FiltroAutenticacion))]
     public class PaginaController : MiControladorBaseController
     {
+        [ServiceFilter(typeof(FiltroAutorizacion))]
         public async Task<IActionResult> Index(string filtro = "", int pagina = 1, int cantidad = 5)
         {
             if (filtro == null) { filtro = ""; }

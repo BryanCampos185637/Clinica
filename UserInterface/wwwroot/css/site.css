@@ -27,12 +27,22 @@ thead{
     margin-right: 1px !important;
     font-size: 13px;
 }
+    .btn:hover {
+        font-size: 15px;
+    }
 .nav-item {
     border-bottom: 1px solid #6ec5ff;
 }
     .nav-item:hover {
-        background: #6ec5ff !important;
+        background: #007bff!important;
+        color: #000 !important;
+        font-size:15px;
     }
 
 
 
+
+.tb_paginas {
+    overflow: scroll !important;
+    height: 200px !important;
+}

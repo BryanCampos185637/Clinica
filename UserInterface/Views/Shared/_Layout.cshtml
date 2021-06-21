@@ -8,10 +8,11 @@
     <link href="~/css/navbar.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link href="~/lib/limonte-sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+    <link href="~/lib/fontawesome-free-5.14.0-web/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-primary">
-        <a class="navbar-brand text-dark" href="#">Version: Beta</a>
+        <a class="navbar-brand text-light" asp-controller="Home" asp-action="Index">Version: Beta</a>
         <button class="navbar-toggler"
                 type="button"
                 data-toggle="collapse"
@@ -21,114 +22,35 @@
                 aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav mr-auto sidenav" id="navAccordion">
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Rol" asp-action="Index">Roles</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Servicio" asp-action="Index">Servicio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Enfermedad" asp-action="Index">Enfermedad</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Paciente" asp-action="Index">Paciente</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Expediente" asp-action="Index">Expedientes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Cita" asp-action="CrearCita">Crear cita</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Cita" asp-action="Index">Citas creadas</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Pagina" asp-action="Index">Paginas</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link text-dark" onclick="CerrarSesion()">Cerrar sesion</a>
-                </li>
-            </ul>
-            <div class="form-inline ml-auto mt-2 mt-md-0">
-                <h4 class="text-dark">@ViewData["Title"] </h4>
-            </div>
-        </div>
+        <partial name="~/Views/Home/_Menu.cshtml" />
+        
     </nav>
 
     <main class="content-wrapper">
         <div class="container-fluid">
             <div class="container">
                 @RenderBody()
-                <div class="row">
-                    <div class="col-12">
-                        <div class="text-center">
-                            <span>Hecho por: DevSpartan</span><br />
-                            <span>Contactanos: dev.spartan.sv@gmail.com</span><br />
-                            <a href="https://www.myASP.NET/index?r=Devspartansv">
-                                <img src="https://www.myASP.NET/affiliate/728X90.gif" border="0">
-                            </a>
-                        </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="text-right fixed-bottom" style="margin-right:15px">
+                        <span><strong>Hecho por:</strong> DevSpartan</span><br />
+                        <span><strong>Contactanos:</strong> dev.spartan.sv@gmail.com</span><br />
+                        <span>
+                              <strong>Apoyanos </strong> si quieres apoyarnos suscribete 
+                              <a href="https://www.myASP.NET/index?r=Devspartansv">
+                                  aqui
+                              </a> y recibe un hosting gratis por 60 dias.
+                        </span>
                     </div>
+
                 </div>
             </div>
         </div>
     </main>
-
-
-
-
-
-    @*<header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-primary border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><strong>Versión: Beta</strong></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Servicio" asp-action="Index">Servicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Enfermedad" asp-action="Index">Enfermedad</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Paciente" asp-action="Index">Paciente</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Expediente" asp-action="Index">Expedientes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Cita" asp-action="CrearCita">Crear cita</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Cita" asp-action="Index">Citas creadas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-dark" onclick="CerrarSesion()">Cerrar sesion</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        @RenderBody()
-
-        <div class="row">
-            <div class="col-12">
-                <div class="text-center">
-                    <span>Hecho por: DevSpartan</span><br />
-                    <span>Contactanos: dev.spartan.sv@gmail.com</span>
-                </div>
-            </div>
-        </div>
-    </div>*@
+    
     <div style="display:none">
         <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Cerrar" id="btnCerrarSesion"></a>
     </div>

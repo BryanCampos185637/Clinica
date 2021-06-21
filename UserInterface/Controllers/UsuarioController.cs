@@ -3,12 +3,14 @@ using Microsoft.AspNetCore.Mvc;
 using DataAccessLogic.LogicaTipoUsuario;
 using System.Threading.Tasks;
 using UserInterface.Helpers.FiltroSeguridad;
+using Models;
 
 namespace UserInterface.Controllers
 {
     [ServiceFilter(typeof(FiltroAutenticacion))]
     public class UsuarioController : MiControladorBaseController
     {
+        [ServiceFilter(typeof(FiltroAutorizacion))]
         public async Task<IActionResult> Index(string filtro = "", int pagina = 1, int cantidad = 5)
         {
             if (filtro == null) { filtro = ""; }
@@ -96,18 +98,28 @@ namespace UserInterface.Controllers
         [HttpPost]
         public async Task<IActionResult> Eliminar(int id)
         {
-            var rpt = await _mediator.Send(new EliminarUsuario.Ejecuta { UsuarioId = id });
-            if (rpt == "Exito")
+            var idUsuario = Helpers.SessionHelper.obtenerObjetoSesion<Usuario>(HttpContext.Session, "login");
+            if (idUsuario.UsuarioId == id)
             {
-                TempData["success"] = "Se elimino correctamente";
-                TempData["icono"] = "success";
-                return RedirectToAction("Index");
+                TempData["success"] = "No puedes eliminar tu cuenta de usuario";
+                TempData["icono"] = "warning";
+                return Redirect("Index");
             }
             else
             {
-                TempData["success"] = rpt;
-                TempData["icono"] = "warning";
-                return Redirect("Index");
+                var rpt = await _mediator.Send(new EliminarUsuario.Ejecuta { UsuarioId = id });
+                if (rpt == "Exito")
+                {
+                    TempData["success"] = "Se elimino correctamente";
+                    TempData["icono"] = "success";
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    TempData["success"] = rpt;
+                    TempData["icono"] = "warning";
+                    return Redirect("Index");
+                }
             }
         }
     }

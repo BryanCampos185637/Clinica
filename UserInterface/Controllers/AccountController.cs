@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using System.Net;
 
 namespace UserInterface.Controllers
 {
@@ -68,6 +69,11 @@ namespace UserInterface.Controllers
         {
             HttpContext.Session.Remove("login");
             return Redirect("Login");
+        }
+        public IActionResult Error401(string pagina)
+        {
+            ViewBag.Pagina = pagina;
+            return View();
         }
     }
 }

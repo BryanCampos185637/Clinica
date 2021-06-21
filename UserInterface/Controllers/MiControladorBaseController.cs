@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace UserInterface.Controllers
 {
+
     public class MiControladorBaseController : Controller
     {
         private IMediator mediator;

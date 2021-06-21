@@ -34,9 +34,6 @@ namespace DataAccessLogic.LogicaRoles
                     var estaEnUso = await context.PaginaTipoUsuarios.Where(p => p.PaginaId.Equals(request.PaginaId)).AnyAsync();
                     if (estaEnUso)
                         return "No se puede eliminar, un rol la esta utilizando";
-                    estaEnUso = await context.Botones.Where(p => p.PaginaId.Equals(request.PaginaId)).AnyAsync();
-                    if (estaEnUso)
-                        return "No se puede eliminar, un boton la esta utilizando";
                     #endregion
 
                     var obj = await context.Paginas.Where(p => p.PaginaId.Equals(request.PaginaId)).FirstAsync();
