@@ -4,53 +4,57 @@
 }
 
 <div class="row">
-    <div class="col-12 mt-md-3">
-        <div class="text-center">
-            <h4>@ViewData["Title"]</h4>
-            <h6>Sistema de clinica <strong>Versión: Beta</strong></h6>
-        </div>
-    </div>
     <div class="offset-lg-2 offset-md-2 col-lg-8 col-md-8 col-sm-12 mt-2">
-        <form asp-action="Editar" class="row">
-            <input asp-for="CitaId" type="hidden"/>
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input asp-for="ExpedienteId" class="form-control" type="hidden" />
-            <div class="form-group col-md-6 col-sm-12">
-                <label>Paciente</label>
-                <input type="text" readonly class="form-control" value="@Model.Paciente.NombrePaciente @Model.Paciente.ApellidoPaciente" />
+        <div class="card animated fadeInLeft">
+            <div class="card-body">
+                <div class="text-center">
+                    <h4>@ViewData["Title"]</h4>
+                    <h6>Sistema de clinica <strong>Versión: Beta</strong></h6>
+                </div>
+                <form asp-action="Editar" class="row mt-3">
+                    <input asp-for="CitaId" type="hidden" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input asp-for="ExpedienteId" class="form-control" type="hidden" />
+                    <div class="form-group col-md-6 col-sm-12">
+                        <label>Paciente</label>
+                        <input type="text" readonly class="form-control" value="@Model.Paciente.NombrePaciente @Model.Paciente.ApellidoPaciente" />
+                    </div>
+                    <div class="form-group col-md-6 col-sm-12">
+                        <label>Enfermedad</label>
+                        <input type="text" readonly class="form-control" value="@Model.Enfermedad.NombreEnfermedad" />
+                    </div>
+                    <div class="form-group col-md-6 col-sm-12">
+                        <label asp-for="ServicioId" class="control-label"></label>
+                        <select asp-for="ServicioId" class="form-control">
+                            @if (Model.ListaServicio != null && Model.ListaServicio.Count > 0)
+                            {
+                                <option value="">--selecciona una opción--</option>
+                                @foreach (var item in Model.ListaServicio)
+                                {
+                                    <option value="@item.ServicioId">@item.NombreServicio</option>
+                                }
+                            }
+                            else
+                            {
+                                <option value="">--No existe ningun servicio--</option>
+                            }
+                        </select>
+                        <span asp-validation-for="ServicioId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6 col-sm-12">
+                        <label asp-for="FechaCita" class="control-label"></label>
+                        <input asp-for="FechaCita" class="form-control" min="@DateTime.Now.AddDays(1).ToString("yyyy-MM-dd")" />
+                        <span asp-validation-for="FechaCita" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-12 col-sm-12">
+                        <div class="text-center">
+                            <input type="submit" value="Guardar" class="btn btn-primary" />
+                            <a asp-action="CrearCita" class="btn btn-primary mt-md-1">Regresar</a>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="form-group col-md-6 col-sm-12">
-                <label>Enfermedad</label>
-                <input type="text" readonly class="form-control" value="@Model.Enfermedad.NombreEnfermedad" />
-            </div>
-            <div class="form-group col-md-6 col-sm-12">
-                <label asp-for="ServicioId" class="control-label"></label>
-                <select asp-for="ServicioId" class="form-control">
-                    @if (Model.ListaServicio != null && Model.ListaServicio.Count > 0)
-                    {
-                        <option value="">--selecciona una opción--</option>
-                        @foreach (var item in Model.ListaServicio)
-                        {
-                            <option value="@item.ServicioId">@item.NombreServicio</option>
-                        }
-                    }
-                    else
-                    {
-                        <option value="">--No existe ningun servicio--</option>
-                    }
-                </select>
-                <span asp-validation-for="ServicioId" class="text-danger"></span>
-            </div>
-            <div class="form-group col-md-6 col-sm-12">
-                <label asp-for="FechaCita" class="control-label"></label>
-                <input asp-for="FechaCita" class="form-control" min="@DateTime.Now.AddDays(1).ToString("yyyy-MM-dd")" />
-                <span asp-validation-for="FechaCita" class="text-danger"></span>
-            </div>
-            <div class="form-group  col-md-12 col-sm-12">
-                <input type="submit" value="Guardar" class="btn btn-primary btn-block" />
-                <a asp-action="CrearCita" class="btn btn-danger btn-block">Regresar</a>
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 

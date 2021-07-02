@@ -28,14 +28,9 @@ namespace UserInterface
             {
                 p.UseSqlServer(Configuration.GetConnectionString("local"));
             });
-            //identity
-            //services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
             //MediatR
             services.AddMediatR(typeof(AgregarPaciente.Manejador).Assembly);
-            services.AddSession(opt=> 
-            {
-                //opt.Cookie.Path = "/Account/Login";
-            });
+            services.AddSession();
             //mi filtro de seguridad
             services.AddScoped<FiltroAutenticacion>();
             services.AddScoped<FiltroAutorizacion>();

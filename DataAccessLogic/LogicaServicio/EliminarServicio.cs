@@ -14,7 +14,7 @@ namespace DataAccessLogic.LogicaServicio
         public class Ejecuta : IRequest<string>
         {
             [Required]
-            public int ServicioId { get; set; }
+            public Guid ServicioId { get; set; }
         }
         public class Manejador : IRequestHandler<Ejecuta, string>
         {
@@ -32,16 +32,12 @@ namespace DataAccessLogic.LogicaServicio
                         return "No se puede eliminar este servicio porque esta en uso";
                     var obj = await context.Servicios.Where(p => p.ServicioId.Equals(request.ServicioId)).FirstAsync();
                     context.Servicios.Remove(obj);
-                    var rpt = await context.SaveChangesAsync();
-                    if (rpt > 0)
-                        return "Exito";
-                    else
-                        return "No se pudo eliminar el servicio";
-                }
+                    await context.SaveChangesAsync();                }
                 catch (Exception e)
                 {
-                    return "Error: " + e.Message;
+                    return "Error: No se pudo eliminar el servicio, " + e.Message;
                 }
+                return "Exito";
             }
         }
     }

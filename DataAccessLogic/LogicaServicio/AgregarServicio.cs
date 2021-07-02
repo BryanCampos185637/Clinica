@@ -41,18 +41,16 @@ namespace DataAccessLogic.LogicaServicio
                     {
                         DescripcionServicio = request.DescripcionServicio.ToUpper(),
                         NombreServicio = request.NombreServicio.ToUpper(),
-                        FechaCreacion = DateTime.Now
+                        FechaCreacion = DateTime.Now,
+                        ServicioId= Guid.NewGuid()
                     });
-                    var rpt = await context.SaveChangesAsync();
-                    if (rpt > 0)
-                        return "Exito";
-                    else
-                        return "No se pudo guardar el servicio";
+                    await context.SaveChangesAsync();
                 }
                 catch (Exception e)
                 {
-                    return "Error " + e.Message;
+                    return "Error: No se pudo guardar el servicio, " + e.Message;
                 }
+                return "Exito";
             }
         }
     }

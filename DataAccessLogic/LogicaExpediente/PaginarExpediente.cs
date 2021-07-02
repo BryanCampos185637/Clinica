@@ -32,7 +32,8 @@ namespace DataAccessLogic.LogicaExpediente
                     var totalAutoresActivos = context.Expedientes.Include(p => p.Paciente).Where(p => p.CodidoExpediente.Contains(request.filtro)).Count();
                     var totalPaginas = (int)Math.Ceiling((double)totalAutoresActivos / request.cantidadItems);
                     if (request.pagina > totalPaginas) { request.pagina = totalPaginas; }
-                    var lst = await context.Expedientes.Include(p=>p.Paciente).Include(p=>p.Enfermedad)
+                    var lst = await context.Expedientes.Include(p=>p.Paciente).Include(p=>p.Diagnostico)
+                                   .Include(p=>p.Diagnostico.Enfermedad)
                                    .Where(p => p.CodidoExpediente.Contains(request.filtro))
                                    .OrderByDescending(p => p.PacienteId)
                                    .Skip((request.pagina - 1) * request.cantidadItems)

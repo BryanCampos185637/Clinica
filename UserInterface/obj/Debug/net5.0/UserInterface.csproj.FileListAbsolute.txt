@@ -890,7 +890,6 @@ C:\Users\Bryan J. Campos\Desktop\Proyectos en Marcha\Clinica\UserInterface\obj\D
 C:\Users\Bryan J. Campos\Desktop\Proyectos en Marcha\Clinica\UserInterface\obj\Debug\net5.0\ref\UserInterface.dll
 C:\Users\Bryan J. Campos\Desktop\Proyectos en Marcha\Clinica\UserInterface\obj\Debug\net5.0\UserInterface.pdb
 C:\Users\Bryan J. Campos\Desktop\Proyectos en Marcha\Clinica\UserInterface\obj\Debug\net5.0\UserInterface.genruntimeconfig.cache
-C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\appsettings.json
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\UserInterface.exe
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\UserInterface.deps.json
@@ -1346,8 +1345,6 @@ C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Expediente\Index.cshtml.g.cs
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Expediente\Guardar.cshtml.g.cs
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Expediente\Editar.cshtml.g.cs
-C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Cita\Guardar.cshtml.g.cs
-C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Cita\CrearCita.cshtml.g.cs
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Cita\Index.cshtml.g.cs
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Pagina\Index.cshtml.g.cs
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Pagina\Guardar.cshtml.g.cs
@@ -1362,3 +1359,6 @@ C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Account\Error401.cshtml.g.cs
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\Cita\Editar.cshtml.g.cs
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\bin\Debug\net5.0\libman.json
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\CrearCita\Index.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\CrearCita\Guardar.cshtml.g.cs
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\UserInterface\obj\Debug\net5.0\Razor\Views\CitaMedica\Index.cshtml.g.cs

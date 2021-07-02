@@ -31,9 +31,8 @@ namespace DataAccessLogic.Seguridad
             [Display(Name = "Contraseña")]
             [DataType(DataType.Password)]
             public string Contra { get; set; }
-            [Required(ErrorMessage = "El tipo de usuario es requerido")]
             [Display(Name = "Rol")]
-            public int? TipoUsuarioId { get; set; }
+            public Guid TipoUsuarioId { get; set; }
         }
         public class Manejador : IRequestHandler<Ejecuta, string>
         {
@@ -56,16 +55,15 @@ namespace DataAccessLogic.Seguridad
                         Edad = Convert.ToInt32(request.Edad),
                         Contra = request.Contra,
                         Direccion = request.Direccion.ToUpper(),
-                        TipoUsuarioId = (int)request.TipoUsuarioId
+                        TipoUsuarioId = new Guid("be5db022-c0d4-4383-3875-08d93592a91f"),
+                        UsuarioId= Guid.NewGuid()
                     };
                     context.Usuarios.Add(data);
-                    var rpt = await context.SaveChangesAsync();
-                    if (rpt <= 0)
-                        return "Error intente mas tarde";
+                    await context.SaveChangesAsync();
                 }
                 catch (Exception e)
                 {
-                    return "Error "+e.Message;
+                    return "Error: No se pudo registrar el usuario " + e.Message;
                 }
                 return "Exito";
             }

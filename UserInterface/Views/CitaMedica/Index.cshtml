@@ -1,0 +1,80 @@
+﻿@model Models.DTO.CitasDelDiaDTO
+@{
+    ViewData["Title"] = "Citas del dia";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <form method="get" asp-action="Index" id="frmFiltroBusqueda">
+                    <div class="md-form">
+                        <div class="input-group">
+                            <label for="filtro">Buscar por dui</label>
+                            <input type="text" autocomplete="off" class="form-control" id="filtro" name="filtro" value="@ViewBag.filtro" autofocus />
+                            <button type="submit" class="btn btn-success btn-sm" title="Buscar"><i class="fas fa-search"></i></button>
+                            <button type="button" class="btn btn-danger btn-sm" onclick="LimpiarFormularioBusqueda()" title="Limpiar busqueda"><i class="fas fa-eraser"></i></button>
+                        </div>
+
+                    </div>
+                </form>
+                <table class="table table-hover table-responsive-sm">
+                    <thead>
+                        <tr>
+                            <th>No DUI</th>
+                            <th>PROXIMA CITA</th>
+                            <th>SERVICIO</th>
+                            <th>PACIENTE</th>
+                            <th>ENFERMEDAD</th>
+                            <th class="text-center">OPCIONES</th>
+                        </tr>
+                    </thead>
+                    <tbody class="animated fadeInLeft">
+                        @if (Model != null && Model.ListaCita != null)
+                        {
+                            foreach (var item in Model.ListaCita)
+                            {
+                                <tr>
+                                    <td>@item.Expediente.Paciente.NoDuiPaciente</td>
+                                    <td>@item.FechaCita.ToString("d")</td>
+                                    <td>@item.Servicio.NombreServicio</td>
+                                    <td>@item.Expediente.Paciente.NombrePaciente @item.Expediente.Paciente.ApellidoPaciente</td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-danger btn-sm mr-1" onclick="EliminarRegistro('@item.CitaId')"><i class="fas fa-trash"></i></button>
+                                        <a class="btn btn-success btn-sm mr-1" asp-action="Editar" asp-route-id="@item.CitaId"><i class="fas fa-edit"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="10" class="text-center">No hay @ViewData["Title"]</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 text-center">
+                        <partial name="~/Views/Paginador/_Paginador.cshtml" model="Model" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form asp-action="Eliminar" method="post" id="frmEliminar">
+        <input type="hidden" id="id" name="id" />
+    </form>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/Inputmask-5.x/dist/inputmask.js"></script>
+    <script src="~/lib/Inputmask-5.x/dist/jquery.inputmask.js"></script>
+    <script src="~/js/InputMask/filtroDUI.js"></script>
+    <script>
+        function EliminarRegistro(id) {
+            confirmarEliminacion('el paciente', () => {
+                $('#id').val(id);
+                $('#frmEliminar').submit();
+            });
+        }
+    </script>
+</div>

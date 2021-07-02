@@ -1,0 +1,64 @@
+﻿@model Models.DTO.ExpedienteDTO
+@{
+    ViewData["Title"] = "Crear cita";
+}
+
+<div class="row">
+    <div class="col-md-12 col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <form method="get" asp-action="CrearCita" id="frmFiltroBusqueda" class="mb-1">
+                    <div class="md-form">
+                        <div class="input-group">
+                            <label for="filtro">Buscar por  el numero de dui</label>
+                            <input type="text" autocomplete="off" class="form-control" id="filtro" name="filtro" value="@ViewBag.filtro" />
+                            <button type="submit" class="btn btn-success btn-sm" title="Buscar"><i class="fas fa-search"></i></button>
+                            <button type="button" class="btn btn-danger btn-sm" onclick="LimpiarFormularioBusqueda()" title="Limpiar busqueda"><i class="fas fa-eraser"></i></button>
+                        </div>
+                    </div>
+                </form>
+                <table class="table table-hover table-bordered table-responsive-sm">
+                    <thead>
+                        <tr>
+                            <th>No DUI</th>
+                            <th>NOMBRE</th>
+                            <th>Cod EXPEDIENTE</th>
+                            <th class="text-center">OPCIONES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null && Model.ListaExpediente != null)
+                        {
+                            foreach (var item in Model.ListaExpediente)
+                            {
+                                <tr>
+                                    <td>@item.Paciente.NoDuiPaciente</td>
+                                    <td>@item.Paciente.NombrePaciente @item.Paciente.ApellidoPaciente</td>
+                                    <td>@item.CodidoExpediente</td>
+                                    <td class="text-center">
+                                        <a class="btn btn-success btn-sm mr-1" asp-action="Guardar" asp-route-id="@item.ExpedienteId" title="Citar"><i class="fas fa-calendar"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="10" class="text-center">No hay @ViewData["Title"]</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 text-center">
+                        <partial name="~/Views/Paginador/_Paginador.cshtml" model="Model" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/Inputmask-5.x/dist/inputmask.js"></script>
+<script src="~/lib/Inputmask-5.x/dist/jquery.inputmask.js"></script>
+<script src="~/js/InputMask/filtroDUI.js"></script>

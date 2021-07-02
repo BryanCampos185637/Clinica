@@ -51,7 +51,7 @@ namespace UserInterface.Controllers
             }
         }
         [ServiceFilter(typeof(FiltroAutorizacion))]
-        public async Task<IActionResult> Editar(Int64 id)
+        public async Task<IActionResult> Editar(Guid id)
         {
             var obj = await _mediator.Send(new ObtenerPaciente.Ejecuta { EnfermedadId = id });
             return View(new ModificarEnfermedad.Ejecuta

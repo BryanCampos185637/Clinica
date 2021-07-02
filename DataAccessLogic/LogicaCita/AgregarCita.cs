@@ -19,7 +19,7 @@ namespace DataAccessLogic.LogicaCita
             public Guid ExpedienteId { get; set; }
             [Required(ErrorMessage ="Debes seleccionar un servicio")]
             [Display(Name ="Servicio")]
-            public int? ServicioId { get; set; }
+            public Guid? ServicioId { get; set; }
             [Required(ErrorMessage ="Debes seleccionar una fecha")]
             [DataType(DataType.Date)]
             [Display(Name = "Fecha de cita")]
@@ -52,7 +52,7 @@ namespace DataAccessLogic.LogicaCita
                         ExpedienteId = request.ExpedienteId,
                         FechaCita = (DateTime)request.FechaCita,
                         FechaCreacion = DateTime.UtcNow,
-                        ServicioId = (int)request.ServicioId
+                        ServicioId = (Guid)request.ServicioId
                     });
                     var rpt = await context.SaveChangesAsync();
                     if (rpt <= 0)

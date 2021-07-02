@@ -48,18 +48,16 @@ namespace DataAccessLogic.LogicaEnfermedad
                     {
                         NombreEnfermedad = request.NombreEnfermedad.ToUpper(),
                         DescripcionEnfermedad = request.DescripcionEnfermedad.ToUpper(),
-                        FechaCreacion = DateTime.Now
+                        FechaCreacion = DateTime.Now,
+                        EnfermedadId = Guid.NewGuid()
                     });
-                    var rpt = await context.SaveChangesAsync();
-                    if (rpt > 0)
-                        return "Exito";
-                    else
-                        return "No se pudo guardar la enfermedad";
+                    await context.SaveChangesAsync();
                 }
                 catch(Exception e)
                 {
                     return "Error " + e.Message;
                 }
+                return "Exito";
             }
         }
     }

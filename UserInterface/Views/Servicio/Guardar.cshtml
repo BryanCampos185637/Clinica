@@ -5,30 +5,32 @@
 }
 
 <div class="row">
-    <div class="col-12 mt-md-3">
-        <div class="text-center">
-            <h4>@ViewData["Title"] servicio</h4>
-            <h6>Sistema de clinica <strong>Versión: Beta</strong></h6>
-        </div>
-    </div>
     <div class="offset-lg-3 offset-md-3 col-lg-6 col-md-6 col-sm-12 mt-2">
-        <form asp-action="Guardar">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="NombreServicio" class="control-label"></label>
-                <input asp-for="NombreServicio" class="form-control" />
-                <span asp-validation-for="NombreServicio" class="text-danger"></span>
+        <div class="card animated fadeInLeft">
+            <div class="card-body">
+                <div class="text-center">
+                    <h4>@ViewData["Title"] servicio</h4>
+                    <h6>Sistema de clinica <strong>Versión: Beta</strong></h6>
+                </div>
+                <form asp-action="Guardar" class="mt-3">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="NombreServicio" class="control-label"></label>
+                        <input asp-for="NombreServicio" class="form-control" />
+                        <span asp-validation-for="NombreServicio" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DescripcionServicio" class="control-label"></label>
+                        <input asp-for="DescripcionServicio" class="form-control" />
+                        <span asp-validation-for="DescripcionServicio" class="text-danger"></span>
+                    </div>
+                    <div class="form-group text-center">
+                        <input type="submit" value="Guardar" class="btn btn-primary" />
+                        <a asp-action="Index" class="btn btn-danger mt-md-1">Regresar</a>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="DescripcionServicio" class="control-label"></label>
-                <input asp-for="DescripcionServicio" class="form-control" />
-                <span asp-validation-for="DescripcionServicio" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Guardar" class="btn btn-primary btn-block" />
-                <a asp-action="Index" class="btn btn-danger btn-block">Regresar</a>
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 

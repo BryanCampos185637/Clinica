@@ -20,8 +20,8 @@ namespace DataAccessLogic.LogicaRoles
             [Required(ErrorMessage = "La descripción es requerida")]
             [Display(Name ="Descripción")]
             public string Descripcion { get; set; }
-            [Required(ErrorMessage = "Debes asignarle paginas")]
-            [Display(Name = "Asigna las vistas que podra acceder")]
+            [Required(ErrorMessage = "Debes asignarle permisos")]
+            [Display(Name = "Asigna los permisos que desees")]
             public string arregloPaginaId { get; set; }
         }
         public class Manejador : IRequestHandler<Ejecuta, string>
@@ -33,42 +33,48 @@ namespace DataAccessLogic.LogicaRoles
             }
             public async Task<string> Handle(Ejecuta request, CancellationToken cancellationToken)
             {
-                try
+                using (var transaccionSql = context.Database.BeginTransaction())
                 {
-                    #region guardar rol
-                    var existeRole = await context.TipoUsuarios.Where(p => p.NombreTipoUsuario.Equals(request.Nombre)).AnyAsync();
-                    if (existeRole)
-                        return request.Nombre + " ya existe en el sistema";
-                    var rol = new TipoUsuario
+                    try
                     {
-                        NombreTipoUsuario = request.Nombre.ToUpper(),
-                        DescripcionTipoUsuario = request.Descripcion.ToUpper(),
-                        FechaCreacion = DateTime.Now
-                    };
-                    context.TipoUsuarios.Add(rol);
-                    var rpt = await context.SaveChangesAsync();
-                    #endregion
-
-                    #region relacionar paginas
-                    var listaPaginasSeleccionadas = request.arregloPaginaId.Substring(0, request.arregloPaginaId.Length - 1).Split('$');
-                    foreach (var item in listaPaginasSeleccionadas)
-                    {
-                        if (item != null || item != "")
+                        #region guardar rol
+                        var existeRole = await context.TipoUsuarios.Where(p => p.NombreTipoUsuario.Equals(request.Nombre)).AnyAsync();
+                        if (existeRole)
+                            return request.Nombre + " ya existe en el sistema";
+                        var rol = new TipoUsuario
                         {
-                            var paginaTipoUsuario = new PaginaTipoUsuario
+                            NombreTipoUsuario = request.Nombre.ToUpper(),
+                            DescripcionTipoUsuario = request.Descripcion.ToUpper(),
+                            FechaCreacion = DateTime.Now
+                        };
+                        context.TipoUsuarios.Add(rol);
+                        var rpt = await context.SaveChangesAsync();
+                        #endregion
+
+                        #region relacionar paginas
+                        var listaPaginasSeleccionadas = request.arregloPaginaId.Substring(0, request.arregloPaginaId.Length - 1).Split('$');
+                        foreach (var item in listaPaginasSeleccionadas)
+                        {
+                            if (item != null || item != "")
                             {
-                                PaginaId = Convert.ToInt32(item),
-                                TipoUsuarioId = rol.TipoUsuarioId
-                            };
-                            context.PaginaTipoUsuarios.Add(paginaTipoUsuario);
-                            await context.SaveChangesAsync();
+                                var paginaTipoUsuario = new PaginaTipoUsuario
+                                {
+                                    PaginaId = new Guid(item),
+                                    TipoUsuarioId = rol.TipoUsuarioId
+                                };
+                                context.PaginaTipoUsuarios.Add(paginaTipoUsuario);
+                                await context.SaveChangesAsync();
+                            }
                         }
+                        #endregion
+
+                        transaccionSql.Commit();
                     }
-                    #endregion
-                }
-                catch ( Exception e)
-                {
-                    return "Error " + e.Message;
+                    catch (Exception e)
+                    {
+                        transaccionSql.Rollback();
+                        return "Error " + e.Message;
+                    }
                 }
                 return "Exito";
             }

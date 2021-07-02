@@ -16,7 +16,7 @@ namespace DataAccessLogic.LogicaUsuario
         public class Ejecuta : IRequest<string>
         {
             [Required(ErrorMessage = "El id del usuario es requerido")]
-            public int UsuarioId { get; set; }
+            public Guid UsuarioId { get; set; }
             [Required(ErrorMessage ="El nombre de usuario es requerido")]
             [Display(Name ="NOMBRE USUARIO")]
             public string NombreUsuario { get; set; }
@@ -26,7 +26,7 @@ namespace DataAccessLogic.LogicaUsuario
             public string Contra { get; set; }
             [Display(Name = "ROL")]
             [Required(ErrorMessage = "El rol es requerido")]
-            public int? TipoUsuarioId { get; set; }
+            public Guid TipoUsuarioId { get; set; }
             public List<TipoUsuario> ListatipoUsuarios { get; set; }
         }
         public class Manejador : IRequestHandler<Ejecuta, string>
@@ -48,14 +48,12 @@ namespace DataAccessLogic.LogicaUsuario
                     user.NombreUsuario = request.NombreUsuario.ToUpper();
                     if (request.Contra != null && request.Contra != "") 
                         user.Contra = request.Contra;
-                    user.TipoUsuarioId = (int)request.TipoUsuarioId;
-                    var rpt = await context.SaveChangesAsync();
-                    if (rpt <= 0)
-                        return "No se pudo guardar el usuario";
+                    user.TipoUsuarioId = request.TipoUsuarioId;
+                    await context.SaveChangesAsync();
                 }
                 catch (Exception e)
                 {
-                    return "Error " + e.Message;
+                    return "Error: No se pudo guardar el usuario, " + e.Message;
                 }
                 return "Exito";
             }

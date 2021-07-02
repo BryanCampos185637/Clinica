@@ -15,7 +15,7 @@ namespace DataAccessLogic.LogicaServicio
         public class Ejecuta : IRequest<string>
         {
             [Required]
-            public int ServicioId { get; set; }
+            public Guid ServicioId { get; set; }
             [Display(Name = "NOMBRE")]
             [StringLength(200, ErrorMessage = "El nombre solo debe contener 200 caracteres")]
             [Required(ErrorMessage = "El nombre es requerido")]
@@ -46,16 +46,13 @@ namespace DataAccessLogic.LogicaServicio
                         DescripcionServicio = request.DescripcionServicio.ToUpper(),
                         NombreServicio = request.NombreServicio.ToUpper()
                     });
-                    var rpt = await context.SaveChangesAsync();
-                    if (rpt > 0)
-                        return "Exito";
-                    else
-                        return "No se pudo modificar el servicio";
+                    await context.SaveChangesAsync();
                 }
                 catch (Exception e)
                 {
-                    return "Error " + e.Message;
+                    return "Error: No se pudo modificar el servicio, " + e.Message;
                 }
+                return "Exito";
             }
         }
     }

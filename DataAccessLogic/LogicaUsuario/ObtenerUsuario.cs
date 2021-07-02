@@ -13,7 +13,7 @@ namespace DataAccessLogic.LogicaUsuario
     {
         public class Ejecuta : IRequest<Usuario>
         {
-            public int UsuarioId { get; set; }
+            public Guid UsuarioId { get; set; }
         }
         public class Manejador : IRequestHandler<Ejecuta, Usuario>
         {

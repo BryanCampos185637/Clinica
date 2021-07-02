@@ -16,7 +16,7 @@ namespace DataAccessLogic.LogicaEnfermedad
         /// </summary>
         public class Ejecuta : IRequest<Enfermedad>
         {
-            public Int64 EnfermedadId { get; set; }
+            public Guid EnfermedadId { get; set; }
         }
         /// <summary>
         /// ejecuta la transaccion para devolver una enfermedad buscando por el id

@@ -34,8 +34,8 @@ namespace PersistenceData.Migrations
                     b.Property<DateTime>("FechaCreacion")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("ServicioId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("ServicioId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("CitaId");
 
@@ -46,12 +46,59 @@ namespace PersistenceData.Migrations
                     b.ToTable("Citas");
                 });
 
+            modelBuilder.Entity("Models.Diagnostico", b =>
+                {
+                    b.Property<Guid>("DiagnosticoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("EnfermedadId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ExpedienteId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("FechaCreacion")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("DiagnosticoId");
+
+                    b.HasIndex("EnfermedadId");
+
+                    b.HasIndex("ExpedienteId")
+                        .IsUnique();
+
+                    b.ToTable("Diagnosticos");
+                });
+
+            modelBuilder.Entity("Models.Documento", b =>
+                {
+                    b.Property<Guid>("DocumentoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<byte[]>("ContenidoDocumento")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("ExtensionDocumento")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NombreDocumento")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("ObjetoReferencia")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("DocumentoId");
+
+                    b.ToTable("Documentos");
+                });
+
             modelBuilder.Entity("Models.Enfermedad", b =>
                 {
-                    b.Property<long>("EnfermedadId")
+                    b.Property<Guid>("EnfermedadId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("DescripcionEnfermedad")
                         .IsRequired()
@@ -81,8 +128,8 @@ namespace PersistenceData.Migrations
                         .HasMaxLength(15)
                         .HasColumnType("nvarchar(15)");
 
-                    b.Property<long>("EnfermedadId")
-                        .HasColumnType("bigint");
+                    b.Property<Guid>("DiagnosticoId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("FechaCreacion")
                         .HasColumnType("datetime2");
@@ -92,34 +139,9 @@ namespace PersistenceData.Migrations
 
                     b.HasKey("ExpedienteId");
 
-                    b.HasIndex("EnfermedadId");
-
                     b.HasIndex("PacienteId");
 
                     b.ToTable("Expedientes");
-                });
-
-            modelBuilder.Entity("Models.FotoUsuario", b =>
-                {
-                    b.Property<int>("FotoUsuarioId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<byte[]>("Archivo")
-                        .HasColumnType("varbinary(max)");
-
-                    b.Property<string>("Extension")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("UsuarioId")
-                        .HasColumnType("int");
-
-                    b.HasKey("FotoUsuarioId");
-
-                    b.HasIndex("UsuarioId");
-
-                    b.ToTable("FotoUsuarios");
                 });
 
             modelBuilder.Entity("Models.Paciente", b =>
@@ -168,10 +190,9 @@ namespace PersistenceData.Migrations
 
             modelBuilder.Entity("Models.Pagina", b =>
                 {
-                    b.Property<int>("PaginaId")
+                    b.Property<Guid>("PaginaId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Accion")
                         .IsRequired()
@@ -195,16 +216,15 @@ namespace PersistenceData.Migrations
 
             modelBuilder.Entity("Models.PaginaTipoUsuario", b =>
                 {
-                    b.Property<int>("PaginaTipoUsuarioId")
+                    b.Property<Guid>("PaginaTipoUsuarioId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("PaginaId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("PaginaId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("TipoUsuarioId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("TipoUsuarioId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("PaginaTipoUsuarioId");
 
@@ -217,10 +237,9 @@ namespace PersistenceData.Migrations
 
             modelBuilder.Entity("Models.Servicio", b =>
                 {
-                    b.Property<int>("ServicioId")
+                    b.Property<Guid>("ServicioId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("DescripcionServicio")
                         .IsRequired()
@@ -242,10 +261,9 @@ namespace PersistenceData.Migrations
 
             modelBuilder.Entity("Models.TipoUsuario", b =>
                 {
-                    b.Property<int>("TipoUsuarioId")
+                    b.Property<Guid>("TipoUsuarioId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("DescripcionTipoUsuario")
                         .HasColumnType("nvarchar(max)");
@@ -263,10 +281,9 @@ namespace PersistenceData.Migrations
 
             modelBuilder.Entity("Models.Usuario", b =>
                 {
-                    b.Property<int>("UsuarioId")
+                    b.Property<Guid>("UsuarioId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Contra")
                         .IsRequired()
@@ -293,8 +310,8 @@ namespace PersistenceData.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("TipoUsuarioId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("TipoUsuarioId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("UsuarioId");
 
@@ -322,7 +339,7 @@ namespace PersistenceData.Migrations
                     b.Navigation("Servicio");
                 });
 
-            modelBuilder.Entity("Models.Expediente", b =>
+            modelBuilder.Entity("Models.Diagnostico", b =>
                 {
                     b.HasOne("Models.Enfermedad", "Enfermedad")
                         .WithMany()
@@ -330,26 +347,26 @@ namespace PersistenceData.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Models.Expediente", "Expediente")
+                        .WithOne("Diagnostico")
+                        .HasForeignKey("Models.Diagnostico", "ExpedienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Enfermedad");
+
+                    b.Navigation("Expediente");
+                });
+
+            modelBuilder.Entity("Models.Expediente", b =>
+                {
                     b.HasOne("Models.Paciente", "Paciente")
                         .WithMany()
                         .HasForeignKey("PacienteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Enfermedad");
-
                     b.Navigation("Paciente");
-                });
-
-            modelBuilder.Entity("Models.FotoUsuario", b =>
-                {
-                    b.HasOne("Models.Usuario", "Usuario")
-                        .WithMany()
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("Models.PaginaTipoUsuario", b =>
@@ -380,6 +397,11 @@ namespace PersistenceData.Migrations
                         .IsRequired();
 
                     b.Navigation("TipoUsuario");
+                });
+
+            modelBuilder.Entity("Models.Expediente", b =>
+                {
+                    b.Navigation("Diagnostico");
                 });
 #pragma warning restore 612, 618
         }

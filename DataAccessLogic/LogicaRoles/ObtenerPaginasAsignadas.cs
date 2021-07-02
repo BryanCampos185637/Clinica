@@ -12,7 +12,7 @@ namespace DataAccessLogic.LogicaRoles
     {
         public class Ejecuta : IRequest<string>
         {
-            public int idRol { get; set; }
+            public Guid idRol { get; set; }
         }
         public class Manejador : IRequestHandler<Ejecuta, string>
         {

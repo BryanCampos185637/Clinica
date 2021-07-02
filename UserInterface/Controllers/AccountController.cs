@@ -3,15 +3,17 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
-using System.Net;
+using DataAccessLogic.LogicaUsuario;
 
 namespace UserInterface.Controllers
 {
     [AllowAnonymous]
     public class AccountController : MiControladorBaseController
     {
-        public IActionResult Login()
+        public async Task<IActionResult> Login()
         {
+            var exite = await _mediator.Send(new ExisteUsuario.Ejecuta());
+            ViewBag.existe = exite;
             return View();
         }
         [HttpPost]
@@ -70,10 +72,12 @@ namespace UserInterface.Controllers
             HttpContext.Session.Remove("login");
             return Redirect("Login");
         }
-        public IActionResult Error401(string pagina)
+        public IActionResult Error401(string pagina,string paginaAnterior)
         {
             ViewBag.Pagina = pagina;
+            ViewBag.paginaAnterior = paginaAnterior;
             return View();
         }
+
     }
 }

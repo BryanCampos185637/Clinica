@@ -20,7 +20,8 @@ function CerrarSesion() {
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Si! cerrar'
+        confirmButtonText: 'Si! cerrar',
+        cancelButtonText:'Cancelar'
     }).then((result) => {
         if (result.isConfirmed) {
             document.getElementById('btnCerrarSesion').click();

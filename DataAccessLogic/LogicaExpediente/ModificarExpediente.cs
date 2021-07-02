@@ -22,7 +22,7 @@ namespace DataAccessLogic.LogicaExpediente
             public Guid PacienteId { get; set; }
             [Required(ErrorMessage = "La enfermedad es requerida")]
             [Display(Name = "Enfermedad")]
-            public Int64? EnfermedadId { get; set; }
+            public Guid? EnfermedadId { get; set; }
             //propiedades para viewModel
             public List<Enfermedad> ListaEnfermedad { get; set; }
             public List<Paciente> ListaPaciente { get; set; }
@@ -44,10 +44,8 @@ namespace DataAccessLogic.LogicaExpediente
                         return "El expediente ya existe";
 
                     var obj = await context.Expedientes.Where(p => p.ExpedienteId.Equals(request.ExpedienteId)).FirstAsync();
-                    obj.EnfermedadId = (int)request.EnfermedadId;
-                    var rpt = await context.SaveChangesAsync();
-                    if (rpt <= 0)
-                        return "No se pudo modificar el expediente";
+                    obj.DiagnosticoId = (Guid)request.EnfermedadId;
+                    await context.SaveChangesAsync();
                 }
                 catch (Exception e)
                 {

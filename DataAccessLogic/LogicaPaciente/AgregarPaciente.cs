@@ -53,7 +53,7 @@ namespace DataAccessLogic.LogicaPaciente
                     if (nveces > 0)
                         return "El numero de dui ya existe en el sistema";
                     var obj = new Paciente
-                    {
+                    { 
                         NoDuiPaciente = request.NoDuiPaciente,
                         NombrePaciente = request.NombrePaciente.ToUpper(),
                         ApellidoPaciente = request.ApellidoPaciente.ToUpper(),

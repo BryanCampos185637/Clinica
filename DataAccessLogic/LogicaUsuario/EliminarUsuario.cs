@@ -12,7 +12,7 @@ namespace DataAccessLogic.LogicaUsuario
     {
         public class Ejecuta : IRequest<string>
         {
-            public int UsuarioId { get; set; }
+            public Guid UsuarioId { get; set; }
         }
         public class Manejador : IRequestHandler<Ejecuta, string>
         {
@@ -28,13 +28,11 @@ namespace DataAccessLogic.LogicaUsuario
                 {
                     var obj = await context.Usuarios.Where(p => p.UsuarioId.Equals(request.UsuarioId)).FirstOrDefaultAsync();
                     context.Usuarios.Remove(obj);
-                    var rpt = await context.SaveChangesAsync();
-                    if (rpt <= 0)
-                        return "No se pudo eliminar el usuario";
+                    await context.SaveChangesAsync();
                 }
                 catch (Exception e)
                 {
-                    return "Error " + e.Message;
+                    return "Error: No se pudo eliminar el usuario, " + e.Message;
                 }
                 return "Exito";
             }

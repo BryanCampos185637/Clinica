@@ -14,7 +14,7 @@ namespace DataAccessLogic.LogicaRoles
         public class Ejecuta : IRequest<string>
         {
             [Required]
-            public int PaginaId { get; set; }
+            public Guid PaginaId { get; set; }
             [Required(ErrorMessage = "El nombre de la pagina es requerido")]
             [Display(Name = "Nombre pagina")]
             [StringLength(50, ErrorMessage = "Solo admite 50 caracteres")]
@@ -57,15 +57,12 @@ namespace DataAccessLogic.LogicaRoles
                     obj.Accion = request.Accion.ToUpper();
                     obj.Controlador = request.Controlador.ToUpper();
                     obj.NombrePagina = request.NombrePagina.ToUpper();
-                    var rpt = await context.SaveChangesAsync();
+                    await context.SaveChangesAsync();
                     #endregion
-
-                    if (rpt <= 0)
-                        return "No se pudo modificar la pagina";
                 }
                 catch (Exception e)
                 {
-                    return "Error " + e.Message;
+                    return "Error: No se pudo modificar la pagina, " + e.Message;
                 }
                 return "Exito";
             }

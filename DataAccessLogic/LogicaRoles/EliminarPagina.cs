@@ -2,10 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using PersistenceData;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -16,7 +14,7 @@ namespace DataAccessLogic.LogicaRoles
         public class Ejecuta : IRequest<string>
         {
             [Required]
-            public int PaginaId { get; set; }
+            public Guid PaginaId { get; set; }
         }
         public class Manejador : IRequestHandler<Ejecuta, string>
         {
@@ -38,13 +36,11 @@ namespace DataAccessLogic.LogicaRoles
 
                     var obj = await context.Paginas.Where(p => p.PaginaId.Equals(request.PaginaId)).FirstAsync();
                     context.Paginas.Remove(obj);
-                    var rpt = await context.SaveChangesAsync();
-                    if (rpt <= 0)
-                        return "No se pudo eliminar intente mas tarde";
+                    await context.SaveChangesAsync();
                 }
                 catch (Exception e)
                 {
-                    return "Error " + e.Message;
+                    return "Error: No se pudo eliminar, " + e.Message;
                 }
                 return "Exito";
             }

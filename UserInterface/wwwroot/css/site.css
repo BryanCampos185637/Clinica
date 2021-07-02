@@ -5,10 +5,11 @@
 }
 body{
     background:#f2e4f4 !important;
-    font-size:13px;
+    font-size:13px !important;
 }
-.table-bordered td, .table-bordered th {
-    border: 2px solid #f2e4f4 !important;
+td, th {
+    /*border: 2px solid #f2e4f4 !important;*/
+    font-size:13px !important;
 }
 fieldset{
     background:#fff;
@@ -20,29 +21,36 @@ fieldset{
 thead{
     background:#6ec5ff !important;
 }
-.btn {
+.btn, btn-sm {
     color: #fff !important;
     background-color: #007bff !important;
     border-color: #007bff !important;
     margin-right: 1px !important;
-    font-size: 13px;
+    font-size: 10px !important;
 }
-    .btn:hover {
+   /* .btn:hover {
         font-size: 15px;
-    }
+    }*/
 .nav-item {
     border-bottom: 1px solid #6ec5ff;
 }
     .nav-item:hover {
-        background: #007bff!important;
-        color: #000 !important;
+        background: #007bff;
+        color: #000;
         font-size:15px;
     }
 
 
-
-
+.activo {
+    background: #f2e4f4 !important;
+    color:black !important;
+}
+    .activo:hover {
+        background: #4285f4 !important;
+        font-size: 15px !important;
+    }
 .tb_paginas {
     overflow: scroll !important;
     height: 200px !important;
+    overflow-x:hidden !important;
 }

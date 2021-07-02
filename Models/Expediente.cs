@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Models
 {
@@ -9,8 +8,8 @@ namespace Models
         public string CodidoExpediente { get; set; }
         public Guid PacienteId { get; set; }
         public Paciente Paciente { get; set; }
-        public Int64 EnfermedadId { get; set; }
-        public Enfermedad Enfermedad { get; set; }
+        public Guid DiagnosticoId { get; set; }
+        public Diagnostico Diagnostico { get; set; }
         public DateTime FechaCreacion { get; set; }
     }
 }

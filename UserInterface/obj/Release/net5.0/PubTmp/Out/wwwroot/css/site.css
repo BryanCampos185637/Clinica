@@ -5,32 +5,46 @@
 }
 body{
     background:#f2e4f4 !important;
+    font-size:13px !important;
 }
-.table-bordered td, .table-bordered th {
-    border: 2px solid #f2e4f4 !important;
+td, th {
+    /*border: 2px solid #f2e4f4 !important;*/
+    font-size:13px !important;
 }
 fieldset{
     background:#fff;
     box-shadow:10px,10px;
 }
-/*.bg-primary, .btn-primary {
-    background-color: #7f0000 !important;
-}
-.bg-primary-2, btn-danger {
-    background-color: #6ec5ff !important;
-}*/
 .text-dark {
     color: #000 !important;
 }
 thead{
     background:#6ec5ff !important;
 }
-.btn {
+.btn, btn-sm {
     color: #fff !important;
     background-color: #007bff !important;
     border-color: #007bff !important;
-    margin-right:1px !important;
+    margin-right: 1px !important;
+    font-size: 10px !important;
 }
+   /* .btn:hover {
+        font-size: 15px;
+    }*/
+.nav-item {
+    border-bottom: 1px solid #6ec5ff;
+}
+    .nav-item:hover {
+        background: #007bff!important;
+        color: #000 !important;
+        font-size:15px;
+    }
 
 
 
+
+.tb_paginas {
+    overflow: scroll !important;
+    height: 200px !important;
+    overflow-x:hidden !important;
+}

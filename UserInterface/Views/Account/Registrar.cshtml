@@ -9,6 +9,8 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/mdbootstrap/css/mdb.min.css" rel="stylesheet" />
+    <link href="~/lib/fontawesome-free-5.14.0-web/css/all.min.css" rel="stylesheet" />
     <title>Registrar</title>
     <link href="~/css/site.css" rel="stylesheet" />
 </head>
@@ -20,56 +22,62 @@
     </nav>
     <div class="container">
         <div class="row">
-            <div class="col-12 mt-md-3">
-                <div class="text-center">
-                    <h1>Formulario de registro</h1>
-                    <h5>Sistema de clinica <strong>Versión: Beta</strong></h5>
-                </div>
-            </div>
-            <div class="col-md-12 col-sm-12">
-                <form asp-action="Registrar" id="frmRegistrarUsuario" class="row">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-group col-md-6 col-sm-12">
-                        <label asp-for="NombreCompleto" class="control-label"></label>
-                        <input asp-for="NombreCompleto" class="form-control" placeholder="Escribe tu nombre completo" />
-                        <span asp-validation-for="NombreCompleto" class="text-danger"></span>
-                    </div>
-                    <div class="form-group col-md-6 col-sm-12">
-                        <label asp-for="Edad" class="control-label"></label>
-                        <input asp-for="Edad" class="form-control" placeholder="Escribe tu edad" />
-                        <span asp-validation-for="Edad" class="text-danger"></span>
-                    </div>
-                    <div class="form-group col-md-6 col-sm-12">
-                        <label asp-for="Direccion" class="control-label"></label>
-                        <input asp-for="Direccion" class="form-control" placeholder="Escribe tu dirección" />
-                        <span asp-validation-for="Direccion" class="text-danger"></span>
-                    </div>
-                    <div class="form-group col-md-6 col-sm-12">
-                        <label asp-for="TipoUsuarioId" class="control-label"></label>
-                        <input asp-for="TipoUsuarioId" class="form-control" value="1" type="hidden" />
-                        <input class="form-control" readonly value="ADMINISTRADOR" />
-                        <span asp-validation-for="TipoUsuarioId" class="text-danger"></span>
-                    </div>
-                    <div class="form-group col-md-6 col-sm-12">
-                        <label asp-for="NombreUsuario" class="control-label"></label>
-                        <input asp-for="NombreUsuario" class="form-control" placeholder="Escribe tu nombre de usuario" />
-                        <span asp-validation-for="NombreUsuario" class="text-danger"></span>
-                    </div>
-                    <div class="form-group col-md-6 col-sm-12">
-                        <label asp-for="Contra" class="control-label"></label>
-                        <input asp-for="Contra" class="form-control" placeholder="Escribe tu contraseña" id="Contra" />
-                        <span asp-validation-for="Contra" class="text-danger"></span>
-                    </div>
-                    <div class="form-group offset-md-3 col-md-6 col-sm-12">
-                        <input type="submit" value="Guardar" class="btn btn-primary btn-block" id="btGuardar" />
-                        <a asp-action="Login" class="btn btn-danger btn-block">Regresar</a>
-                    </div>
+            <section class="col-md-12 col-sm-12">
+                <div class="card animated fadeInLeft">
+                    <div class="card-body">
+                        <div class="text-center">
+                            <h1>Formulario de registro</h1>
+                            <h5>Sistema de clinica <strong>Versión: Beta</strong></h5>
+                        </div>
+                        <form asp-action="Registrar" id="frmRegistrarUsuario" class="row mt-3">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group col-md-6 col-sm-12">
+                                <label asp-for="NombreCompleto" class="control-label"></label>
+                                <input asp-for="NombreCompleto" class="form-control" placeholder="Escribe tu nombre completo" />
+                                <span asp-validation-for="NombreCompleto" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6 col-sm-12">
+                                <label asp-for="Edad" class="control-label"></label>
+                                <input asp-for="Edad" class="form-control" placeholder="Escribe tu edad" />
+                                <span asp-validation-for="Edad" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6 col-sm-12">
+                                <label asp-for="Direccion" class="control-label"></label>
+                                <input asp-for="Direccion" class="form-control" placeholder="Escribe tu dirección" />
+                                <span asp-validation-for="Direccion" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6 col-sm-12">
+                                <label asp-for="TipoUsuarioId" class="control-label"></label>
+                                <input class="form-control" readonly value="ADMINISTRADOR" />
+                                <span asp-validation-for="TipoUsuarioId" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6 col-sm-12">
+                                <label asp-for="NombreUsuario" class="control-label"></label>
+                                <input asp-for="NombreUsuario" class="form-control" placeholder="Escribe tu nombre de usuario" />
+                                <span asp-validation-for="NombreUsuario" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6 col-sm-12">
+                                <label asp-for="Contra" class="control-label"></label>
+                                <input asp-for="Contra" class="form-control" placeholder="Escribe tu contraseña" id="Contra" />
+                                <span asp-validation-for="Contra" class="text-danger"></span>
+                            </div>
+                            <div class="form-group offset-md-3 col-md-6 col-sm-12">
+                                <div class="text-center">
+                                    <input type="submit" value="Guardar" class="btn btn-primary" />
+                                    <a asp-action="Login" class="btn btn-primary mt-md-1">Regresar</a>
+                                </div>
+                            </div>
 
-                </form>
-            </div>
+                        </form>
+                    </div>
+                </div>
+                
+            </section>
         </div>
     </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/lib/mdbootstrap/js/mdb.min.js"></script>
 </body>
 </html>
 

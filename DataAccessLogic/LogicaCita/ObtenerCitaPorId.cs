@@ -27,7 +27,7 @@ namespace DataAccessLogic.LogicaCita
                 {
                     var cita = await context.Citas.Where(p => p.CitaId.Equals(request.CitaId)).Include(p=>p.Expediente).Include(p=>p.Servicio).FirstOrDefaultAsync();
                     var paciente = await context.Pacientes.Where(p => p.PacienteId.Equals(cita.Expediente.PacienteId)).FirstAsync();
-                    var enfermedad = await context.Enfermedades.Where(p => p.EnfermedadId.Equals(cita.Expediente.EnfermedadId)).FirstAsync();
+                    var enfermedad = await context.Enfermedades.Where(p => p.EnfermedadId.Equals(cita.Expediente.DiagnosticoId)).FirstAsync();
                     return new ModificarCita.Ejecuta
                     {
                         CitaId = cita.CitaId,

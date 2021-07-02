@@ -14,7 +14,7 @@ namespace DataAccessLogic.LogicaRoles
     {
         public class Ejecuta : IRequest<List<Pagina>>
         {
-            public int idRol { get; set; }
+            public Guid idRol { get; set; }
         }
         public class Manejador : IRequestHandler<Ejecuta, List<Pagina>>
         {

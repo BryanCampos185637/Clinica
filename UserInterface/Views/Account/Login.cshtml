@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "Login";
     Layout = null;
+    bool existeUsuario = ViewBag.existe;
 }
 
 
@@ -11,6 +12,8 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/mdbootstrap/css/mdb.min.css" rel="stylesheet" />
+    <link href="~/lib/fontawesome-free-5.14.0-web/css/all.min.css" rel="stylesheet" />
     <title>Login</title>
     <link href="~/css/site.css" rel="stylesheet" />
 </head>
@@ -22,39 +25,66 @@
     </nav>
     <div class="container align-items-center">
         <div class="row">
-            <div class="col-12 mt-md-3">
-                <div class="text-center">
-                    <h1>Inicie sesión</h1>
-                    <h5>Sistema de clinica <strong>Versión: Beta</strong></h5>
-                </div>
-            </div>
-            <div class="offset-lg-4 offset-md-4 col-lg-4 col-md-4 col-sm-12 mt-2">
-                <form asp-action="Login" method="post" id="frmLogin">
-                    <div class="text-center">
-                        @if (TempData["success"] != null)
-                        {
-                            <span class="text-danger">@TempData["success"]</span>
-                        }
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="NombreUsuario"></label>
-                        <input asp-for="NombreUsuario" class="form-control" placeholder="Escribe tu correo electronico" autofocus/>
-                        <span asp-validation-for="NombreUsuario" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Contra"></label>
-                        <input asp-for="Contra" class="form-control" placeholder="Escribe tu contraseña" />
-                        <span asp-validation-for="Contra" class="text-danger"></span>
-                    </div>
+            <section class="offset-lg-3 offset-md-3 col-lg-6 col-md-6 col-sm-12 mt-2">
+                <div class="card animated fadeInDown">
+                    <div class="card-body">
+                        <div class="text-center">
+                            <h1>Inicie sesión</h1>
+                            <h5>Sistema de clinica <strong>Versión: Beta</strong></h5>
+                        </div>
+                        <form asp-action="Login" method="post" id="frmLogin" class="mt-3">
+                            <div class="text-center">
+                                @if (TempData["success"] != null)
+                                {
+                                    <span class="text-danger">@TempData["success"]</span>
+                                }
+                            </div>
+                            <div class="form-group">
+                                <i class="fas fa-user"></i>
+                                <label asp-for="NombreUsuario"></label>
+                                <input asp-for="NombreUsuario" class="form-control" placeholder="Escribe tu correo electronico" onchange="animacion()" autofocus />
+                                <span asp-validation-for="NombreUsuario" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <i class="fas fa-lock"></i>
+                                <label asp-for="Contra"></label>
+                                <input asp-for="Contra" class="form-control" placeholder="Escribe tu contraseña" onchange="animacion()"/>
+                                <span asp-validation-for="Contra" class="text-danger"></span>
+                            </div>
 
-                    <div class="text-center">
-                        <input type="submit" value="Entrar" class="btn btn-primary btn-block" /><br />
-                        <span>No tienes cuenta registrate <a asp-action="Registrar">Aqui</a></span>
+                            <div class="text-center">
+                                <input type="submit" value="Entrar" class="btn btn-primary btn-block" id="btnLogin" /><br />
+                                @if (!existeUsuario)
+                                { 
+                                    <span>No tienes cuenta registrate <a asp-action="Registrar">Aqui</a></span>
+                                }
+                            </div>
+                        </form>
                     </div>
-                </form>
-            </div>
+                </div>
+            </section>
         </div>
     </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/lib/mdbootstrap/js/mdb.min.js"></script>
+    <script>
+        animacion();
+        function animacion(){
+            var inputs = document.getElementsByClassName('form-control');
+            var result = true;
+            for (var i = 0; i < inputs.length; i++) {
+                var avalidar = inputs[i].value;
+                if (avalidar == '')
+                    result = false;
+            }
+            var btn = document.getElementById('btnLogin');
+            if (result) {
+                btn.className += ' animated tada infinite';
+            } else {
+                btn.className = 'btn btn-primary btn-block';
+            }
+        }
+    </script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using PersistenceData;
+using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ namespace DataAccessLogic.LogicaRoles
     {
         public class Ejecuta:IRequest<ModificarRol.Ejecuta> 
         {
-            public int idRol { get; set; }
+            public Guid idRol { get; set; }
         }
         public class Manejador : IRequestHandler<Ejecuta, ModificarRol.Ejecuta>
         {

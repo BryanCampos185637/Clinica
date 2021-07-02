@@ -34,7 +34,7 @@ namespace DataAccessLogic.LogicaUsuario
             public string Contra { get; set; }
             [Required(ErrorMessage = "El tipo de usuario es requerido")]
             [Display(Name = "Rol")]
-            public int? TipoUsuarioId { get; set; }
+            public Guid TipoUsuarioId { get; set; }
             //lista para mostrar los tipos de usuario
             public List<TipoUsuario>ListatipoUsuarios { get; set; }
         }
@@ -59,15 +59,13 @@ namespace DataAccessLogic.LogicaUsuario
                         Edad = Convert.ToInt32(request.Edad),
                         Contra = request.Contra,
                         Direccion = request.Direccion.ToUpper(),
-                        TipoUsuarioId = (int)request.TipoUsuarioId
+                        TipoUsuarioId = request.TipoUsuarioId
                     });
-                    var rpt = await context.SaveChangesAsync();
-                    if (rpt <= 0)
-                        return "No se pudo modificar el usuario";
+                    await context.SaveChangesAsync();
                 }
                 catch (Exception e)
                 {
-                    return "Error " + e.Message;
+                    return "Error: No se pudo modificar el usuario, " + e.Message;
                 }
                 return "Exito";
             }

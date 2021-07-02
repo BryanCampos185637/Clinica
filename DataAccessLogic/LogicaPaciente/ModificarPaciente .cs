@@ -65,16 +65,13 @@ namespace DataAccessLogic.LogicaPaciente
                         obj.FechaNacimiento = (DateTime)request.FechaNacimiento;
                     obj.Direccion = request.Direccion.ToUpper();
                     context.Pacientes.Update(obj);
-                    var rpt = await context.SaveChangesAsync();
-                    if (rpt > 0)
-                        return "Exito";
-                    else
-                        return "No se pudo modificar el paciente";
+                    await context.SaveChangesAsync();
                 }
                 catch (Exception e)
                 {
                     return "Error " + e.Message;
                 }
+                return "Exito";
             }
             
         }

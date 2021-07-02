@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using PersistenceData;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading;
@@ -13,7 +14,7 @@ namespace DataAccessLogic.LogicaRoles
         public class Ejecuta : IRequest<ModificarPagina.Ejecuta>
         {
             [Required]
-            public int PaginaId { get; set; }
+            public Guid PaginaId { get; set; }
         }
         public class Manejador : IRequestHandler<Ejecuta, ModificarPagina.Ejecuta>
         {

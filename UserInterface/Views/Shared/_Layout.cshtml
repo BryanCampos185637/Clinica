@@ -1,58 +1,41 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Clinica</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/lib/mdbootstrap/css/mdb.min.css" rel="stylesheet" />
     <link href="~/css/navbar.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link href="~/lib/limonte-sweetalert2/sweetalert2.min.css" rel="stylesheet" />
     <link href="~/lib/fontawesome-free-5.14.0-web/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-primary">
-        <a class="navbar-brand text-light" asp-controller="Home" asp-action="Index">Version: Beta</a>
-        <button class="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarCollapse"
-                aria-controls="navbarCollapse"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <partial name="~/Views/Home/_Menu.cshtml" />
-        
-    </nav>
+    <partial name="~/Views/Home/_Menu.cshtml" />
+    
 
     <main class="content-wrapper">
         <div class="container-fluid">
             <div class="container">
                 @RenderBody()
-            </div>
-        </div>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <div class="text-right fixed-bottom" style="margin-right:15px">
-                        <span><strong>Hecho por:</strong> DevSpartan</span><br />
-                        <span><strong>Contactanos:</strong> dev.spartan.sv@gmail.com</span><br />
-                        <span>
-                              <strong>Apoyanos </strong> si quieres apoyarnos suscribete 
-                              <a href="https://www.myASP.NET/index?r=Devspartansv">
-                                  aqui
-                              </a> y recibe un hosting gratis por 60 dias.
-                        </span>
-                    </div>
-
+                <div class="text-center animated fadeInUp mt-md-2 mt-sm-1">
+                    <span><i class="fas fa-cogs"></i> <strong>Hecho por:</strong> DevSpartan</span><br />
+                    <span><i class="fas fa-mail-bulk"></i> <strong>Contactanos:</strong> dev.spartan.sv@gmail.com</span><br />
+                    <span>
+                        <i class="fas fa-smile"></i>
+                        Si quieres apoyarnos suscribete
+                        <a href="https://www.myASP.NET/index?r=Devspartansv">
+                            aqui
+                        </a> y recibe un hosting gratis por 60 dias.
+                    </span>
                 </div>
             </div>
         </div>
     </main>
-    
+
     <div style="display:none">
-        <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Cerrar" id="btnCerrarSesion"></a>
+        <a asp-controller="Account" asp-action="Cerrar" id="btnCerrarSesion"></a>
     </div>
     @if (TempData["success"] != null || TempData["warning"] != null)
     {
@@ -64,10 +47,12 @@
         {
             <input type="hidden" id="txtMensajeServidor" value="@TempData["warning"]" />
         }
-        <input type="hidden" id="txtIconoServer" value="@TempData["icono"]" />
+        <input type="text" id="txtIconoServer" value="@TempData["icono"]" />
     }
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/mdbootstrap/js/mdb.min.js"></script>
     <script src="~/lib/limonte-sweetalert2/sweetalert2.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)

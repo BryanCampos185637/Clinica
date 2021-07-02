@@ -86,7 +86,7 @@ namespace UserInterface.Controllers
             return View(new ModificarExpediente.Ejecuta
             {
                 ExpedienteId = obj.ExpedienteId,
-                EnfermedadId = obj.EnfermedadId,
+                EnfermedadId  = obj.DiagnosticoId,
                 PacienteId = obj.PacienteId,
                 ListaEnfermedad = lst.ListaEnfermedad,
                 ListaPaciente = lst.ListaPaciente

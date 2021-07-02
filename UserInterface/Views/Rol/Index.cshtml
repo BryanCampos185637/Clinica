@@ -4,57 +4,66 @@
 }
 
 <div class="row">
-    <fieldset class="col-md-12 col-sm-12 mb-2">
-        <legend>Botonera @ViewData["Title"]</legend>
-        <a asp-action="Guardar" class="btn btn-primary btn-sm">Nuevo</a>
-    </fieldset>
-    <fieldset class="col-md-12 col-sm-12">
-        <legend>Lista de @ViewData["Title"]</legend>
-        <form method="get" asp-action="Index" id="frmFiltroBusqueda" class="mb-1">
-            <div class="input-group">
-                <input type="text" autocomplete="off" class="form-control" placeholder="Escribe el nombre del rol" id="filtro" name="filtro" value="@ViewBag.filtro" />
-                <button type="submit" class="btn btn-success btn-sm" title="Buscar"><i class="fas fa-search"></i></button>
-                <button type="button" class="btn btn-danger btn-sm" onclick="LimpiarFormularioBusqueda()" title="Limpiar busqueda"><i class="fas fa-eraser"></i></button>
-            </div>
-        </form>
-        <table class="table table-hover table-bordered table-responsive-sm">
-            <thead>
-                <tr>
-                    <th>NOMBRE</th>
-                    <th>DESCRIPCÍON</th>
-                    <th class="text-center">OPCIONES</th>
-                </tr>
-            </thead>
-            <tbody>
-                @if (Model != null && Model.ListaTipoUsuario != null)
-                {
-                    foreach (var item in Model.ListaTipoUsuario)
-                    {
-                        <tr>
-                            <td>@item.NombreTipoUsuario</td>
-                            <td>@item.DescripcionTipoUsuario</td>
-                            <td class="text-center">
-                                <button type="button" class="btn btn-danger btn-sm mr-1" data-toggle="modal" data-target="#modalDetalle" onclick="MostrarPaginasAsignadas(@item.TipoUsuarioId)" title="Detalles"><i class="fas fa-list"></i></button>
-                                <button type="button" class="btn btn-danger btn-sm mr-1" onclick="EliminarRegistro(@item.TipoUsuarioId)" title="Eliminar"><i class="fas fa-trash"></i></button>
-                                <a class="btn btn-success btn-sm mr-1" asp-action="Editar" asp-route-id="@item.TipoUsuarioId" title="Editar"><i class="fas fa-edit"></i></a>
-                            </td>
-                        </tr>
-                    }
-                }
-                else
-                {
-                    <tr>
-                        <td colspan="10" class="text-center">No hay @ViewData["Title"]</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-        <div class="row">
-            <div class="col-md-12 col-sm-12 text-center">
-                <partial name="~/Views/Paginador/_Paginador.cshtml" model="Model" />
+    <div class="col-md-12 col-sm-12 mb-2">
+        <div class="card">
+            <div class="card-body">
+                <a asp-action="Guardar" class="btn btn-primary btn-sm">Nuevo rol</a>
             </div>
         </div>
-    </fieldset>
+    </div>
+    <div class="col-md-12 col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <form method="get" asp-action="Index" id="frmFiltroBusqueda">
+                    <div class="md-form">
+                        <div class="input-group">
+                            <label for="filtro">Buscar por nombre</label>
+                            <input type="text" autocomplete="off" class="form-control" id="filtro" name="filtro" value="@ViewBag.filtro" />
+                            <button type="submit" class="btn btn-success btn-sm" title="Buscar"><i class="fas fa-search"></i></button>
+                            <button type="button" class="btn btn-danger btn-sm" onclick="LimpiarFormularioBusqueda()" title="Limpiar busqueda"><i class="fas fa-eraser"></i></button>
+                        </div>
+                    </div>
+                </form>
+                <table class="table table-hover table-responsive-sm">
+                    <thead>
+                        <tr>
+                            <th>NOMBRE</th>
+                            <th>DESCRIPCIÓN</th>
+                            <th class="text-center">OPCIONES</th>
+                        </tr>
+                    </thead>
+                    <tbody class="animated fadeInLeft">
+                        @if (Model != null && Model.ListaTipoUsuario != null)
+                        {
+                            foreach (var item in Model.ListaTipoUsuario)
+                            {
+                                <tr>
+                                    <td>@item.NombreTipoUsuario</td>
+                                    <td>@item.DescripcionTipoUsuario</td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalDetalle" onclick="MostrarPaginasAsignadas('@item.TipoUsuarioId')" title="Detalles"><i class="fas fa-list"></i></button>
+                                        <button type="button" class="btn btn-primary btn-sm" onclick="EliminarRegistro('@item.TipoUsuarioId')" title="Eliminar"><i class="fas fa-trash"></i></button>
+                                        <a class="btn btn-primary btn-sm" asp-action="Editar" asp-route-id="@item.TipoUsuarioId" title="Editar"><i class="fas fa-edit"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="10" class="text-center">No hay @ViewData["Title"]</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 text-center">
+                        <partial name="~/Views/Paginador/_Paginador.cshtml" model="Model" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <form asp-action="Eliminar" method="post" id="frmEliminar">
         <input type="hidden" id="id" name="id" />
     </form>
@@ -62,8 +71,8 @@
     <script>
         function EliminarRegistro(id) {
             confirmarEliminacion('el paciente', () => {
-                document.getElementById('id').value = id;
-                document.getElementById('frmEliminar').submit();
+                $('#id').val(id);
+                $('#frmEliminar').submit();
             });
         }
         

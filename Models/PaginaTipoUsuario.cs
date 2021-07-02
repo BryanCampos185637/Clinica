@@ -1,12 +1,14 @@
 ﻿
+using System;
+
 namespace Models
 {
     public class PaginaTipoUsuario
     {
-        public int PaginaTipoUsuarioId { get; set; }
-        public int PaginaId { get; set; }
+        public Guid PaginaTipoUsuarioId { get; set; }
+        public Guid PaginaId { get; set; }
         public Pagina Pagina { get; set; }
-        public int TipoUsuarioId { get; set; }
+        public Guid TipoUsuarioId { get; set; }
         public TipoUsuario TipoUsuario { get; set; }
     }
 }

@@ -1,5 +1,4 @@
-﻿
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Models;
 
 namespace PersistenceData.Config

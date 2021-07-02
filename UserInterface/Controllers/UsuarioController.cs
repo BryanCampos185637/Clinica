@@ -4,6 +4,7 @@ using DataAccessLogic.LogicaTipoUsuario;
 using System.Threading.Tasks;
 using UserInterface.Helpers.FiltroSeguridad;
 using Models;
+using System;
 
 namespace UserInterface.Controllers
 {
@@ -22,6 +23,7 @@ namespace UserInterface.Controllers
                 cantidadItems = cantidad
             }));
         }
+        [ServiceFilter(typeof(FiltroAutorizacion))]
         public async Task<IActionResult> Guardar()
         {
             return View(new AgregarUsuario.Ejecuta
@@ -56,7 +58,8 @@ namespace UserInterface.Controllers
                 return View(parametros);
             }
         }
-        public async Task<IActionResult> Editar(int id)
+        [ServiceFilter(typeof(FiltroAutorizacion))]
+        public async Task<IActionResult> Editar(Guid id)
         {
             var obj = await _mediator.Send(new ObtenerUsuario.Ejecuta { UsuarioId = id });
             return View(new ModificarUsuario.Ejecuta
@@ -96,7 +99,8 @@ namespace UserInterface.Controllers
             }
         }
         [HttpPost]
-        public async Task<IActionResult> Eliminar(int id)
+        [ServiceFilter(typeof(FiltroAutorizacion))]
+        public async Task<IActionResult> Eliminar(Guid id)
         {
             var idUsuario = Helpers.SessionHelper.obtenerObjetoSesion<Usuario>(HttpContext.Session, "login");
             if (idUsuario.UsuarioId == id)

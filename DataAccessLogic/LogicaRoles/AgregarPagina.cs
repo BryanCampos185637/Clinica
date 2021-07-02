@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Models;
 using PersistenceData;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading;
@@ -42,17 +43,16 @@ namespace DataAccessLogic.LogicaRoles
                         return "La pagina ya existe en el sistema";
                     context.Paginas.Add(new Pagina
                     {
+                        PaginaId = Guid.NewGuid(),
                         Accion = request.Accion.ToUpper(),
                         Controlador = request.Controlador.ToUpper(),
                         NombrePagina = request.NombrePagina.ToUpper()
                     });
-                    var rpt = await context.SaveChangesAsync();
-                    if (rpt <= 0)
-                        return "No se pudo guardar la pagina";
+                    await context.SaveChangesAsync();
                 }
-                catch (System.Exception e)
+                catch (Exception e)
                 {
-                    return "Error " + e.Message;
+                    return "Error: No se pudo guardar la pagina, " + e.Message;
                 }
                 return "Exito";
             }

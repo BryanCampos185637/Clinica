@@ -4,61 +4,70 @@
 }
 
 <div class="row">
-    <fieldset class="col-lg-12 col-sm-12 mb-2">
-        <legend>Botonera @ViewData["Title"]</legend>
-        <a asp-action="Guardar" class="btn btn-primary btn-sm">Nuevo</a>
-    </fieldset>
-    <fieldset class="col-lg-12 col-sm-12">
-        <legend>Lista de @ViewData["Title"]</legend>
-        <form method="get" asp-action="Index" id="frmFiltroBusqueda" class="mb-1">
-            <div class="input-group">
-                <input type="text" autocomplete="off" class="form-control" placeholder="Escribe el dui del paciente" id="filtro" name="filtro" value="@ViewBag.filtro" />
-                <button type="submit" class="btn btn-success btn-sm" title="Buscar"><i class="fas fa-search"></i></button>
-                <button type="button" class="btn btn-danger btn-sm" onclick="LimpiarFormularioBusqueda()" title="Limpiar busqueda"><i class="fas fa-eraser"></i></button>
-            </div>
-        </form>
-        <table class="table table-hover table-bordered table-responsive-sm">
-            <thead>
-                <tr>
-
-                    <th>No DUI</th>
-                    <th>NOMBRES</th>
-                    <th>APELLIDOS</th>
-                    <th>EDAD</th>
-                    <th class="text-center">OPCIONES</th>
-                </tr>
-            </thead>
-            <tbody>
-                @if (Model != null && Model.ListaPacientes != null)
-                {
-                    foreach (var item in Model.ListaPacientes)
-                    {
-                        <tr>
-                            <td>@item.NoDuiPaciente</td>
-                            <td>@item.NombrePaciente</td>
-                            <td>@item.ApellidoPaciente</td>
-                            <td>@item.EdadPaciente</td>
-                            <td class="text-center">
-                                <button type="button" class="btn btn-danger btn-sm mr-1" onclick="EliminarRegistro('@item.PacienteId')"><i class="fas fa-trash"></i></button>
-                                <a class="btn btn-success btn-sm mr-1" asp-action="Editar" asp-route-id="@item.PacienteId"><i class="fas fa-edit"></i></a>
-                            </td>
-                        </tr>
-                    }
-                }
-                else
-                {
-                    <tr>
-                        <td colspan="5" class="text-center">No hay @ViewData["Title"]</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-        <div class="row">
-            <div class="col-12 text-center">
-                <partial name="~/Views/Paginador/_Paginador.cshtml" model="Model" />
+    <div class="col-lg-12 col-sm-12 mb-2">
+        <div class="card">
+            <div class="card-body">
+                <a asp-action="Guardar" class="btn btn-primary btn-sm">Nuevo paciente</a>
             </div>
         </div>
-    </fieldset>
+    </div>
+    <div class="col-lg-12 col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <form method="get" asp-action="Index" id="frmFiltroBusqueda" class="mb-1">
+                    <div class="md-form">
+                        <div class="input-group">
+                            <label for="filtro">Buscar por el dui del paciente</label>
+                            <input type="text" autofocus autocomplete="off" class="form-control" id="filtro" name="filtro" value="@ViewBag.filtro" />
+                            <button type="submit" class="btn btn-success btn-sm" title="Buscar"><i class="fas fa-search"></i></button>
+                            <button type="button" class="btn btn-danger btn-sm" onclick="LimpiarFormularioBusqueda()" title="Limpiar busqueda"><i class="fas fa-eraser"></i></button>
+                        </div>
+                    </div>
+                </form>
+                <table class="table table-hover table-responsive-sm">
+                    <thead>
+                        <tr>
+
+                            <th>No DUI</th>
+                            <th>NOMBRES</th>
+                            <th>APELLIDOS</th>
+                            <th>EDAD</th>
+                            <th class="text-center">OPCIONES</th>
+                        </tr>
+                    </thead>
+                    <tbody class="animated fadeInLeft">
+                        @if (Model != null && Model.ListaPacientes != null)
+                        {
+                            foreach (var item in Model.ListaPacientes)
+                            {
+                                <tr>
+                                    <td>@item.NoDuiPaciente</td>
+                                    <td>@item.NombrePaciente</td>
+                                    <td>@item.ApellidoPaciente</td>
+                                    <td>@item.EdadPaciente</td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-danger btn-sm mr-1" onclick="EliminarRegistro('@item.PacienteId')"><i class="fas fa-trash"></i></button>
+                                        <a class="btn btn-success btn-sm mr-1" asp-action="Editar" asp-route-id="@item.PacienteId"><i class="fas fa-edit"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="5" class="text-center">No hay @ViewData["Title"]</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <partial name="~/Views/Paginador/_Paginador.cshtml" model="Model" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <form asp-action="Eliminar" asp-controller="Paciente" method="post" id="frmEliminar">
         <input type="hidden" id="id" name="id" />
     </form>
@@ -69,8 +78,8 @@
     <script>
         function EliminarRegistro(id) {
             confirmarEliminacion('el paciente', () => {
-                document.getElementById('id').value = id;
-                document.getElementById('frmEliminar').submit();
+                $('#id').val(id);
+                $('#frmEliminar').submit();
             });
         }
     </script>

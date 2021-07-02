@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Models;
 using PersistenceData;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading;
@@ -16,7 +15,7 @@ namespace DataAccessLogic.LogicaServicio
         public class Ejecuta : IRequest<Servicio>
         {
             [Required]
-            public int ServicioId { get; set; }
+            public Guid ServicioId { get; set; }
         }
         public class Manejador : IRequestHandler<Ejecuta, Servicio>
         {

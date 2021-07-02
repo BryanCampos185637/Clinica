@@ -39,11 +39,11 @@ namespace DataAccessLogic.LogicaCita
                                 NombrePaciente = p.Paciente.NombrePaciente,
                                 ApellidoPaciente = p.Paciente.ApellidoPaciente
                             }).FirstOrDefaultAsync(),
-                        Enfermedad = await context.Expedientes.Include(p => p.Enfermedad).Where(p => p.ExpedienteId.Equals(request.ExpedienteId))
+                        Enfermedad = await context.Expedientes.Include(p => p.Diagnostico).Where(p => p.ExpedienteId.Equals(request.ExpedienteId))
                             .Select(p => new Enfermedad
                             {
-                                EnfermedadId = p.EnfermedadId,
-                                NombreEnfermedad = p.Enfermedad.NombreEnfermedad
+                                EnfermedadId = p.DiagnosticoId,
+                                NombreEnfermedad = p.Diagnostico.Enfermedad.NombreEnfermedad
                             }).FirstOrDefaultAsync()
                     };
                 }

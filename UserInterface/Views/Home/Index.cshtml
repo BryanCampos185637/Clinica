@@ -2,18 +2,18 @@
     ViewData["Title"] = "Inicio";
 }
 
-<div class="text-center">
+<div class="text-center animated fadeInDown">
     @if (ViewBag.Nombre != null)
     {
-        <h1>SISTEMA CLINICA&reg;</h1>
-        <h6>BIENVENIDO @ViewBag.Nombre </h6>
+        <h1 class="h1">SISTEMA DE CLINICA&reg;</h1>
+        <h6 class="h6">BIENVENIDO @ViewBag.Nombre </h6>
     }
     else
     {
-        <h1>CLINICA @DateTime.Now.ToShortDateString()</h1>
-        <h3>Bienvenido</h3>
+        <h1 class="h1">CLINICA @DateTime.Now.ToShortDateString()</h1>
+        <h6 class="h6">Bienvenido</h6>
     }
 
 
-    <p>Sistema de clinica <strong>Versión: Beta</strong></p>
+    <p>Versión: Beta</p>
 </div>

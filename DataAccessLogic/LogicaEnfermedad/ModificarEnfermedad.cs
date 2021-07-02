@@ -18,7 +18,7 @@ namespace DataAccessLogic.LogicaEnfermedad
         public class Ejecuta : IRequest <string>
         {
             [Required]
-            public Int64 EnfermedadId { get; set; }
+            public Guid EnfermedadId { get; set; }
             [Display(Name = "NOMBRE")]
             [StringLength(200, ErrorMessage = "El nombre solo puede contener 200 caracteres")]
             [Required(ErrorMessage = "El nombre de la enfermedad es requerido")]
@@ -43,26 +43,22 @@ namespace DataAccessLogic.LogicaEnfermedad
             {
                 try
                 {
+                    #region validacion
                     var nveces = await context.Enfermedades.Where(p => p.NombreEnfermedad.Equals(request.NombreEnfermedad)
                     && p.EnfermedadId != request.EnfermedadId).AnyAsync();
                     if (nveces)
                         return "La enfermedad ya esta registrada en la base de datos";
-                    context.Enfermedades.Update(new Enfermedad
-                    {
-                        EnfermedadId = request.EnfermedadId,
-                        NombreEnfermedad = request.NombreEnfermedad.ToUpper(),
-                        DescripcionEnfermedad = request.DescripcionEnfermedad.ToUpper()
-                    });
-                    var rpt = await context.SaveChangesAsync();
-                    if (rpt > 0)
-                        return "Exito";
-                    else
-                        return "No se pudo modificar la enfermedad";
+                    #endregion
+                    var enfermedad = context.Enfermedades.Where(p => p.EnfermedadId == request.EnfermedadId).First();
+                    enfermedad.NombreEnfermedad = request.NombreEnfermedad.ToUpper();
+                    enfermedad.DescripcionEnfermedad = request.DescripcionEnfermedad.ToUpper();
+                    await context.SaveChangesAsync();
                 }
                 catch (Exception e)
                 {
                     return "Error " + e.Message;
                 }
+                return "Exito";
             }
         }
     }

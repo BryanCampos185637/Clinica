@@ -1,5 +1,6 @@
 ﻿using DataAccessLogic.LogicaServicio;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 using UserInterface.Helpers.FiltroSeguridad;
 
@@ -22,7 +23,6 @@ namespace UserInterface.Controllers
         }
         public IActionResult Guardar()
         {
-
             return View();
         }
         [HttpPost]
@@ -49,7 +49,7 @@ namespace UserInterface.Controllers
                 return View(parametros);
             }
         }
-        public async Task<IActionResult> Editar(int id)
+        public async Task<IActionResult> Editar(Guid id)
         {
             var servicio = await _mediator.Send(new ObtenerServicio.Ejecuta { ServicioId = id });
             return View(new ModificarServicio.Ejecuta
@@ -84,7 +84,7 @@ namespace UserInterface.Controllers
             }
         }
         [HttpPost]
-        public async Task<IActionResult> Eliminar(int id)
+        public async Task<IActionResult> Eliminar(Guid id)
         {
             var rpt = await _mediator.Send(new EliminarServicio.Ejecuta { ServicioId = id });
             if (rpt == "Exito")

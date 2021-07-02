@@ -23,7 +23,6 @@ C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\DataAccessLogic\bin\Release\ne
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\DataAccessLogic\bin\Release\net5.0\PersistenceData.dll
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\DataAccessLogic\bin\Release\net5.0\PersistenceData.pdb
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\DataAccessLogic\bin\Release\net5.0\Models.pdb
-C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\DataAccessLogic\obj\Release\net5.0\DataAccessLogic.csprojAssemblyReference.cache
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\DataAccessLogic\obj\Release\net5.0\DataAccessLogic.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\DataAccessLogic\obj\Release\net5.0\DataAccessLogic.AssemblyInfoInputs.cache
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\DataAccessLogic\obj\Release\net5.0\DataAccessLogic.AssemblyInfo.cs
@@ -32,3 +31,4 @@ C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\DataAccessLogic\obj\Release\ne
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\DataAccessLogic\obj\Release\net5.0\DataAccessLogic.dll
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\DataAccessLogic\obj\Release\net5.0\ref\DataAccessLogic.dll
 C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\DataAccessLogic\obj\Release\net5.0\DataAccessLogic.pdb
+C:\Users\Bryan J. Campos\Documents\GitHub\Clinica\DataAccessLogic\obj\Release\net5.0\DataAccessLogic.csproj.AssemblyReference.cache
