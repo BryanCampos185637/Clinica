@@ -36,16 +36,14 @@ namespace DataAccessLogic.LogicaCita
                 try
                 {
                     int totalActivos = context.Citas.Include(p => p.Expediente.Paciente)
-                                                    .Where(p => p.Expediente.Paciente.NoDuiPaciente.Contains(request.filtro)
-                                                    && p.FechaCita > DateTime.Now).Count();
+                                                    .Where(p => p.Expediente.Paciente.NoDuiPaciente.Contains(request.filtro)).Count();
                     int totalPaginas = (int)Math.Ceiling((double)totalActivos / request.cantidadItems);
                     if (request.pagina > totalPaginas) { request.pagina = totalPaginas; }
                     var list = await context.Citas
                                    .Include(p => p.Expediente.Paciente)
                                    .Include(p => p.Expediente.Diagnostico)
                                    .Include(p => p.Servicio)
-                                   .Where(p => p.Expediente.Paciente.NoDuiPaciente.Contains(request.filtro)
-                                    && p.FechaCita > DateTime.Now)
+                                   .Where(p => p.Expediente.Paciente.NoDuiPaciente.Contains(request.filtro))
                                    .OrderByDescending(p => p.FechaCita)
                                    .Skip((request.pagina - 1) * request.cantidadItems)
                                    .Take(request.cantidadItems).ToListAsync();

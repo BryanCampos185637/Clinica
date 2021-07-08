@@ -1,10 +1,8 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Models;
 using Models.DTO;
 using PersistenceData;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -30,18 +28,21 @@ namespace DataAccessLogic.LogicaCitaMedica
             {
                 try
                 {
-                    var TotalCitas = context.Citas.Where(p => p.FechaCita.ToString("yyyy/MM/dd").Contains(DateTime.Now.ToString("yyyy/MM/dd"))).Count();
-                    var TotalPaginas = (int)Math.Ceiling((double)TotalCitas / request.cantidadItems);
+                    string fecha = DateTime.Now.ToString("dd/MM/yyyy");
+                    var TotalCitas = await context.Citas.Where(p=>p.FechaCita == fecha).ToListAsync();
+                    var TotalPaginas = (int)Math.Ceiling((double)TotalCitas.Count / request.cantidadItems);
                     if (request.pagina > TotalPaginas) { request.pagina = TotalPaginas; }
-                    var ListaCita = await context.Citas.Where(p=> DbFunctions.Equals(p.FechaCita, DateTime.Now))
-                                                 .Include(p => p.Expediente).Include(p => p.Expediente.Paciente).ToListAsync();
+                    var ListaCita = await context.Citas.Where(p => p.FechaCita ==fecha)
+                                                 .Include(p => p.Expediente)
+                                                 .Include(p => p.Expediente.Paciente)
+                                                 .Include(p => p.Servicio).ToListAsync();
                     return new CitasDelDiaDTO
                     {
                         Filtro = request.filtro,
                         RegistroPorPagina = request.cantidadItems,
                         ListaCita = ListaCita,
                         PaginaActual = request.pagina,
-                        TotalRegistros = TotalCitas,
+                        TotalRegistros = TotalCitas.Count,
                         TotalPaginas = TotalPaginas
                     };
 

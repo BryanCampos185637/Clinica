@@ -72,10 +72,9 @@ namespace UserInterface.Controllers
             HttpContext.Session.Remove("login");
             return Redirect("Login");
         }
-        public IActionResult Error401(string pagina,string paginaAnterior)
+        public IActionResult Error401(string pagina)
         {
             ViewBag.Pagina = pagina;
-            ViewBag.paginaAnterior = paginaAnterior;
             return View();
         }
 

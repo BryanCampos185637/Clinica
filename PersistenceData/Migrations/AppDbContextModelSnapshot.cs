@@ -28,8 +28,10 @@ namespace PersistenceData.Migrations
                     b.Property<Guid>("ExpedienteId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("FechaCita")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("FechaCita")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
                     b.Property<DateTime>("FechaCreacion")
                         .HasColumnType("datetime2");

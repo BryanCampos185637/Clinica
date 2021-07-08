@@ -51,7 +51,7 @@ namespace DataAccessLogic.LogicaPaciente
                     };
                     return paciente;
                 }
-                catch(Exception e)
+                catch(Exception)
                 {
                     return null;
                 }

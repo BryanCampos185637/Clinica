@@ -13,7 +13,7 @@ namespace UserInterface.Helpers
             {
                 byte[] llave; //Arreglo donde guardaremos la llave para el cifrado 3DES.
                 byte[] arreglo = UTF8Encoding.UTF8.GetBytes(cadena); //Arreglo donde guardaremos la cadena descifrada.
-                                                                     // Ciframos utilizando el Algoritmo MD5.
+                // Ciframos utilizando el Algoritmo MD5.
                 MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
                 llave = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(clave));
                 md5.Clear();

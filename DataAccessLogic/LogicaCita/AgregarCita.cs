@@ -50,7 +50,7 @@ namespace DataAccessLogic.LogicaCita
                     {
                         CitaId = Guid.NewGuid(),
                         ExpedienteId = request.ExpedienteId,
-                        FechaCita = (DateTime)request.FechaCita,
+                        FechaCita = Convert.ToDateTime(request.FechaCita).ToString("yyyy/MM/dd"),
                         FechaCreacion = DateTime.UtcNow,
                         ServicioId = (Guid)request.ServicioId
                     });

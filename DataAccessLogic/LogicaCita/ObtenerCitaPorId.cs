@@ -33,7 +33,7 @@ namespace DataAccessLogic.LogicaCita
                         CitaId = cita.CitaId,
                         ServicioId = cita.ServicioId,
                         ExpedienteId = cita.ExpedienteId,
-                        FechaCita = cita.FechaCita,
+                        FechaCita = Convert.ToDateTime(cita.FechaCita),
                         Paciente= paciente,
                         Enfermedad= enfermedad,
                         ListaServicio= await context.Servicios/*.Where(p=>p.ServicioId.Equals(cita.ServicioId))*/.ToListAsync()

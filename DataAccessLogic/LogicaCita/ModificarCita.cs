@@ -44,7 +44,7 @@ namespace DataAccessLogic.LogicaCita
                 try
                 {
                     var cita = await context.Citas.Where(p => p.CitaId == request.CitaId).FirstOrDefaultAsync();
-                    cita.FechaCita = (DateTime)request.FechaCita;
+                    cita.FechaCita = Convert.ToDateTime(request.FechaCita).ToString("yyyy/MM/dd");
                     cita.ServicioId = (Guid)request.ServicioId;
                     await context.SaveChangesAsync();
                 }

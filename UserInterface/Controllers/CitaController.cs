@@ -1,5 +1,4 @@
-﻿using DataAccessLogic.LogicaExpediente;
-using DataAccessLogic.LogicaCita;
+﻿using DataAccessLogic.LogicaCita;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;

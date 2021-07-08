@@ -11,12 +11,7 @@
     contenido += "<tr>";
     contenido += "<td>" + item.nombrePagina + "</td>";
     contenido += "<td>";
-    contenido +=
-      '<input type="checkbox" class="cbPagina" id="txtPag' +
-      item.paginaId +
-      '" name="pag' +
-      item.paginaId +
-      '" onchange="SeleccionarPagina()"/>';
+    contenido +='<input type="checkbox" class="cbPagina" id="txtPag' +item.paginaId +'" name="pag' +item.paginaId +'" onchange="SeleccionarPagina()"/>';
     contenido += "</td>";
     contenido += "</tr>";
   });

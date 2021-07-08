@@ -9,7 +9,7 @@ namespace Models
         public Expediente Expediente { get; set; }
         public Guid ServicioId { get; set; }
         public Servicio Servicio { get; set; }
-        public DateTime FechaCita { get; set; }
+        public string FechaCita { get; set; }
         public DateTime FechaCreacion { get; set; }
     }
 }

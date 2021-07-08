@@ -38,7 +38,7 @@ namespace UserInterface.Helpers.FiltroSeguridad
                 if (!tieneAcceso)
                 {
                     var nombrePag = mediator.Send(new ObtenerNombrePagina.Ejecuta { Accion = accion, Controlador = controlador }).Result;
-                    context.Result = new RedirectResult("/Account/Error401?pagina=" + nombrePag + "&paginaAnterior=" + controlador);//devolvemos a la vista login//devolvemos a la vista error
+                    context.Result = new RedirectResult("/Account/Error401?pagina=" + nombrePag);//devolvemos a la vista login//devolvemos a la vista error
                 }
                     
             }

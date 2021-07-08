@@ -10,8 +10,8 @@ using PersistenceData;
 namespace PersistenceData.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210629023346_inicio")]
-    partial class inicio
+    [Migration("20210708153742_Inicio")]
+    partial class Inicio
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -30,8 +30,10 @@ namespace PersistenceData.Migrations
                     b.Property<Guid>("ExpedienteId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("FechaCita")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("FechaCita")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
                     b.Property<DateTime>("FechaCreacion")
                         .HasColumnType("datetime2");

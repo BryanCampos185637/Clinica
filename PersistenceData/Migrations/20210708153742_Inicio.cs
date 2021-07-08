@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PersistenceData.Migrations
 {
-    public partial class inicio : Migration
+    public partial class Inicio : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -174,7 +174,7 @@ namespace PersistenceData.Migrations
                     CitaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ExpedienteId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ServicioId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    FechaCita = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    FechaCita = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
                     FechaCreacion = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>

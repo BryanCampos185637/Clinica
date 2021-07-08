@@ -11,7 +11,7 @@ namespace PersistenceData.Config
         /// <param name="entityTypeBuilder"></param>
         public CitaConfig(EntityTypeBuilder<Cita> entityTypeBuilder)
         {
-            entityTypeBuilder.Property(p => p.FechaCita).IsRequired();
+            entityTypeBuilder.Property(p => p.FechaCita).IsRequired().HasMaxLength(10);
         }
     }
 }
